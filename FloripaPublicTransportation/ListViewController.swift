@@ -11,7 +11,16 @@ import UIKit
 class ListViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private var routes: [Route]?
+    private var _routes: [Route]? // stored property
+    private var routes: [Route]? { // computed property
+        get { return _routes }
+        set {
+            _routes = newValue
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        }
+    }
     
     let reuseIdentifier = "routeCell"
 
@@ -41,7 +50,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if routes == nil {
+        if self.routes == nil {
             return 0
         }
         
@@ -69,7 +78,11 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.routes = RestApi.findRoutesByStopName(self.searchBar.text!)
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+        RestApi.findRoutesByStopName(self.searchBar.text!) { routes in
+            self.routes = routes
+        }
     }
 
     // MARK: - Navigation

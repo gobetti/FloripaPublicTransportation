@@ -9,24 +9,42 @@
 import UIKit
 
 class DetailViewController: UITableViewController {
-    var routeId: Int?
+    // MARK: Public properties
+    private var _routeId: Int? // stored property
+    var routeId: Int? { // public computed property
+        get { return _routeId }
+        set {
+            guard newValue != nil && newValue != _routeId else {
+                return
+            }
+            
+            _routeId = newValue
+            
+            RestApi.findDeparturesByRouteId(_routeId!) { departures in
+                self.departures = departures
+                self.finishedLoadingDepartures = true
+            }
+            RestApi.findStopsByRouteId(_routeId!) { stops in
+                self.stops = stops
+                self.finishedLoadingStops = true
+            }
+        }
+    }
     
+    // MARK: Private properties
     private var stops: [Stop]?
-    
     private var weekdayDepartures: [Departure]?
     private var saturdayDepartures: [Departure]?
     private var sundayDepartures: [Departure]?
     private var _departures: [Departure]? // stored property
-    private var departures: [Departure]? {
-        get {
-            return _departures
-        }
+    private var departures: [Departure]? { // computed property
+        get { return _departures }
         set {
-            _departures = newValue
-            
-            guard _departures != nil else {
+            guard newValue != nil else {
                 return
             }
+            
+            _departures = newValue
             
             self.weekdayDepartures = _departures!.filter { d in
                 return d.calendar == .Weekday
@@ -41,19 +59,43 @@ class DetailViewController: UITableViewController {
             }
         }
     }
-        
-    let reuseIdentifier = "detailCell"
     
-    let headerTitles: [String] = ["List of streets within the route", "Weekday timetable",
+    // MARK: tableView.reloadData() logic
+    private var _finishedLoadingStops = false
+    private var _finishedLoadingDepartures = false
+    private var finishedLoadingStops: Bool {
+        get { return _finishedLoadingStops }
+        set {
+            _finishedLoadingStops = newValue
+            if finishedLoadingStops && finishedLoadingDepartures {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
+    private var finishedLoadingDepartures: Bool {
+        get { return _finishedLoadingDepartures }
+        set {
+            _finishedLoadingDepartures = newValue
+            if finishedLoadingStops && finishedLoadingDepartures {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
+    
+    // MARK: Private constants definitions
+    private let reuseIdentifier = "detailCell"
+    private let headerTitles: [String] = ["List of streets within the route", "Weekday timetable",
         "Saturday timetable", "Sunday timetable"]
 
+    // MARK: - View delegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Route details"
-        
-        self.departures = RestApi.findDeparturesByRouteId(self.routeId!)
-        self.stops = RestApi.findStopsByRouteId(self.routeId!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,13 +110,24 @@ class DetailViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
-        cell.textLabel!.text = "Not implemented"
+        switch indexPath.section {
+        case 0:
+            cell.textLabel!.text = self.stops![indexPath.row].name
+        case 1:
+            cell.textLabel!.text = self.weekdayDepartures![indexPath.row].time
+        case 2:
+            cell.textLabel!.text = self.saturdayDepartures![indexPath.row].time
+        case 3:
+            cell.textLabel!.text = self.sundayDepartures![indexPath.row].time
+        default:
+            NSLog("Wrong section number: %u", indexPath.section)
+        }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch (section)
+        switch section
         {
         case 0:
             return self.stops == nil ? 0 : self.stops!.count
