@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004A9C1C77BC350008DC7B /* AppDelegate.swift */; };
-		9C004A9F1C77BC350008DC7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004A9E1C77BC350008DC7B /* ViewController.swift */; };
 		9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA01C77BC350008DC7B /* Main.storyboard */; };
 		9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA31C77BC350008DC7B /* Assets.xcassets */; };
 		9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */; };
 		9C004AB21C77BC350008DC7B /* FloripaPublicTransportationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */; };
 		9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */; };
+		9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACC1C77BF780008DC7B /* ListViewController.swift */; };
+		9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACE1C77C2890008DC7B /* DetailViewController.swift */; };
+		9C004AD31C77DB480008DC7B /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD21C77DB480008DC7B /* Route.swift */; };
+		9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD81C77E1910008DC7B /* RestApi.swift */; };
+		9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADA1C77E3160008DC7B /* Stop.swift */; };
+		9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADC1C77E3200008DC7B /* Departure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,6 @@
 /* Begin PBXFileReference section */
 		9C004A991C77BC350008DC7B /* FloripaPublicTransportation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloripaPublicTransportation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C004A9C1C77BC350008DC7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C004A9E1C77BC350008DC7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C004AA11C77BC350008DC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C004AA31C77BC350008DC7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C004AA61C77BC350008DC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,12 @@
 		9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationUITests.swift; sourceTree = "<group>"; };
 		9C004ABE1C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C004ACC1C77BF780008DC7B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9C004ACE1C77C2890008DC7B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9C004AD21C77DB480008DC7B /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		9C004AD81C77E1910008DC7B /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		9C004ADA1C77E3160008DC7B /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		9C004ADC1C77E3200008DC7B /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +107,11 @@
 		9C004A9B1C77BC350008DC7B /* FloripaPublicTransportation */ = {
 			isa = PBXGroup;
 			children = (
-				9C004A9C1C77BC350008DC7B /* AppDelegate.swift */,
-				9C004A9E1C77BC350008DC7B /* ViewController.swift */,
-				9C004AA01C77BC350008DC7B /* Main.storyboard */,
-				9C004AA31C77BC350008DC7B /* Assets.xcassets */,
-				9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */,
-				9C004AA81C77BC350008DC7B /* Info.plist */,
+				9C004ADE1C77E32A0008DC7B /* Entities */,
+				9C004AD71C77DC700008DC7B /* Model */,
+				9C004AD61C77DBE30008DC7B /* View Controllers */,
+				9C004AD51C77DBDB0008DC7B /* UI */,
+				9C004AD41C77DBC50008DC7B /* Supporting files */,
 			);
 			path = FloripaPublicTransportation;
 			sourceTree = "<group>";
@@ -123,6 +132,52 @@
 				9C004ABE1C77BC350008DC7B /* Info.plist */,
 			);
 			path = FloripaPublicTransportationUITests;
+			sourceTree = "<group>";
+		};
+		9C004AD41C77DBC50008DC7B /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				9C004A9C1C77BC350008DC7B /* AppDelegate.swift */,
+				9C004AA31C77BC350008DC7B /* Assets.xcassets */,
+				9C004AA81C77BC350008DC7B /* Info.plist */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		9C004AD51C77DBDB0008DC7B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9C004AA01C77BC350008DC7B /* Main.storyboard */,
+				9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		9C004AD61C77DBE30008DC7B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C004ACC1C77BF780008DC7B /* ListViewController.swift */,
+				9C004ACE1C77C2890008DC7B /* DetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9C004AD71C77DC700008DC7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C004AD81C77E1910008DC7B /* RestApi.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9C004ADE1C77E32A0008DC7B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9C004ADC1C77E3200008DC7B /* Departure.swift */,
+				9C004AD21C77DB480008DC7B /* Route.swift */,
+				9C004ADA1C77E3160008DC7B /* Stop.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C004A9F1C77BC350008DC7B /* ViewController.swift in Sources */,
+				9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */,
+				9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */,
+				9C004AD31C77DB480008DC7B /* Route.swift in Sources */,
+				9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */,
+				9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */,
 				9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */,
+				9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +542,7 @@
 				9C004AC31C77BC350008DC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C004AC41C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +551,7 @@
 				9C004AC61C77BC350008DC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C004AC71C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +560,7 @@
 				9C004AC91C77BC350008DC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
