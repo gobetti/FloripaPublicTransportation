@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004A9C1C77BC350008DC7B /* AppDelegate.swift */; };
+		9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA01C77BC350008DC7B /* Main.storyboard */; };
+		9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA31C77BC350008DC7B /* Assets.xcassets */; };
+		9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */; };
+		9C004AB21C77BC350008DC7B /* FloripaPublicTransportationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */; };
+		9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */; };
+		9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACC1C77BF780008DC7B /* ListViewController.swift */; };
+		9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACE1C77C2890008DC7B /* DetailViewController.swift */; };
+		9C004AD31C77DB480008DC7B /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD21C77DB480008DC7B /* Route.swift */; };
+		9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD81C77E1910008DC7B /* RestApi.swift */; };
+		9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADA1C77E3160008DC7B /* Stop.swift */; };
+		9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADC1C77E3200008DC7B /* Departure.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C004AAE1C77BC350008DC7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C004A911C77BC340008DC7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C004A981C77BC350008DC7B;
+			remoteInfo = FloripaPublicTransportation;
+		};
+		9C004AB91C77BC350008DC7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C004A911C77BC340008DC7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C004A981C77BC350008DC7B;
+			remoteInfo = FloripaPublicTransportation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9C004A991C77BC350008DC7B /* FloripaPublicTransportation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloripaPublicTransportation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C004A9C1C77BC350008DC7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9C004AA11C77BC350008DC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C004AA31C77BC350008DC7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C004AA61C77BC350008DC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9C004AA81C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C004AAD1C77BC350008DC7B /* FloripaPublicTransportationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationTests.swift; sourceTree = "<group>"; };
+		9C004AB31C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationUITests.swift; sourceTree = "<group>"; };
+		9C004ABE1C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C004ACC1C77BF780008DC7B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9C004ACE1C77C2890008DC7B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9C004AD21C77DB480008DC7B /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		9C004AD81C77E1910008DC7B /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		9C004ADA1C77E3160008DC7B /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		9C004ADC1C77E3200008DC7B /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C004A961C77BC350008DC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C004AAA1C77BC350008DC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C004AB51C77BC350008DC7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C004A901C77BC340008DC7B = {
+			isa = PBXGroup;
+			children = (
+				9C004A9B1C77BC350008DC7B /* FloripaPublicTransportation */,
+				9C004AB01C77BC350008DC7B /* FloripaPublicTransportationTests */,
+				9C004ABB1C77BC350008DC7B /* FloripaPublicTransportationUITests */,
+				9C004A9A1C77BC350008DC7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C004A9A1C77BC350008DC7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C004A991C77BC350008DC7B /* FloripaPublicTransportation.app */,
+				9C004AAD1C77BC350008DC7B /* FloripaPublicTransportationTests.xctest */,
+				9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C004A9B1C77BC350008DC7B /* FloripaPublicTransportation */ = {
+			isa = PBXGroup;
+			children = (
+				9C004ADE1C77E32A0008DC7B /* Entities */,
+				9C004AD71C77DC700008DC7B /* Model */,
+				9C004AD61C77DBE30008DC7B /* View Controllers */,
+				9C004AD51C77DBDB0008DC7B /* UI */,
+				9C004AD41C77DBC50008DC7B /* Supporting files */,
+			);
+			path = FloripaPublicTransportation;
+			sourceTree = "<group>";
+		};
+		9C004AB01C77BC350008DC7B /* FloripaPublicTransportationTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */,
+				9C004AB31C77BC350008DC7B /* Info.plist */,
+			);
+			path = FloripaPublicTransportationTests;
+			sourceTree = "<group>";
+		};
+		9C004ABB1C77BC350008DC7B /* FloripaPublicTransportationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */,
+				9C004ABE1C77BC350008DC7B /* Info.plist */,
+			);
+			path = FloripaPublicTransportationUITests;
+			sourceTree = "<group>";
+		};
+		9C004AD41C77DBC50008DC7B /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				9C004A9C1C77BC350008DC7B /* AppDelegate.swift */,
+				9C004AA31C77BC350008DC7B /* Assets.xcassets */,
+				9C004AA81C77BC350008DC7B /* Info.plist */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		9C004AD51C77DBDB0008DC7B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9C004AA01C77BC350008DC7B /* Main.storyboard */,
+				9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		9C004AD61C77DBE30008DC7B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C004ACC1C77BF780008DC7B /* ListViewController.swift */,
+				9C004ACE1C77C2890008DC7B /* DetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9C004AD71C77DC700008DC7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C004AD81C77E1910008DC7B /* RestApi.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9C004ADE1C77E32A0008DC7B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9C004ADC1C77E3200008DC7B /* Departure.swift */,
+				9C004AD21C77DB480008DC7B /* Route.swift */,
+				9C004ADA1C77E3160008DC7B /* Stop.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C004A981C77BC350008DC7B /* FloripaPublicTransportation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C004AC11C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportation" */;
+			buildPhases = (
+				9C004A951C77BC350008DC7B /* Sources */,
+				9C004A961C77BC350008DC7B /* Frameworks */,
+				9C004A971C77BC350008DC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FloripaPublicTransportation;
+			productName = FloripaPublicTransportation;
+			productReference = 9C004A991C77BC350008DC7B /* FloripaPublicTransportation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C004AAC1C77BC350008DC7B /* FloripaPublicTransportationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C004AC41C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationTests" */;
+			buildPhases = (
+				9C004AA91C77BC350008DC7B /* Sources */,
+				9C004AAA1C77BC350008DC7B /* Frameworks */,
+				9C004AAB1C77BC350008DC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C004AAF1C77BC350008DC7B /* PBXTargetDependency */,
+			);
+			name = FloripaPublicTransportationTests;
+			productName = FloripaPublicTransportationTests;
+			productReference = 9C004AAD1C77BC350008DC7B /* FloripaPublicTransportationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9C004AB71C77BC350008DC7B /* FloripaPublicTransportationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C004AC71C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationUITests" */;
+			buildPhases = (
+				9C004AB41C77BC350008DC7B /* Sources */,
+				9C004AB51C77BC350008DC7B /* Frameworks */,
+				9C004AB61C77BC350008DC7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C004ABA1C77BC350008DC7B /* PBXTargetDependency */,
+			);
+			name = FloripaPublicTransportationUITests;
+			productName = FloripaPublicTransportationUITests;
+			productReference = 9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C004A911C77BC340008DC7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Marcelo Gobetti";
+				TargetAttributes = {
+					9C004A981C77BC350008DC7B = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					9C004AAC1C77BC350008DC7B = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 9C004A981C77BC350008DC7B;
+					};
+					9C004AB71C77BC350008DC7B = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 9C004A981C77BC350008DC7B;
+					};
+				};
+			};
+			buildConfigurationList = 9C004A941C77BC340008DC7B /* Build configuration list for PBXProject "FloripaPublicTransportation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C004A901C77BC340008DC7B;
+			productRefGroup = 9C004A9A1C77BC350008DC7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C004A981C77BC350008DC7B /* FloripaPublicTransportation */,
+				9C004AAC1C77BC350008DC7B /* FloripaPublicTransportationTests */,
+				9C004AB71C77BC350008DC7B /* FloripaPublicTransportationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C004A971C77BC350008DC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */,
+				9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */,
+				9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C004AAB1C77BC350008DC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C004AB61C77BC350008DC7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C004A951C77BC350008DC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */,
+				9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */,
+				9C004AD31C77DB480008DC7B /* Route.swift in Sources */,
+				9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */,
+				9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */,
+				9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */,
+				9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C004AA91C77BC350008DC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C004AB21C77BC350008DC7B /* FloripaPublicTransportationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C004AB41C77BC350008DC7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C004AAF1C77BC350008DC7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C004A981C77BC350008DC7B /* FloripaPublicTransportation */;
+			targetProxy = 9C004AAE1C77BC350008DC7B /* PBXContainerItemProxy */;
+		};
+		9C004ABA1C77BC350008DC7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C004A981C77BC350008DC7B /* FloripaPublicTransportation */;
+			targetProxy = 9C004AB91C77BC350008DC7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9C004AA01C77BC350008DC7B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C004AA11C77BC350008DC7B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C004AA61C77BC350008DC7B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C004ABF1C77BC350008DC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9C004AC01C77BC350008DC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C004AC21C77BC350008DC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FloripaPublicTransportation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gobetti.FloripaPublicTransportation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9C004AC31C77BC350008DC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FloripaPublicTransportation/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gobetti.FloripaPublicTransportation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9C004AC51C77BC350008DC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FloripaPublicTransportationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gobetti.FloripaPublicTransportationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FloripaPublicTransportation.app/FloripaPublicTransportation";
+			};
+			name = Debug;
+		};
+		9C004AC61C77BC350008DC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FloripaPublicTransportationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gobetti.FloripaPublicTransportationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FloripaPublicTransportation.app/FloripaPublicTransportation";
+			};
+			name = Release;
+		};
+		9C004AC81C77BC350008DC7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FloripaPublicTransportationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gobetti.FloripaPublicTransportationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FloripaPublicTransportation;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		9C004AC91C77BC350008DC7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FloripaPublicTransportationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gobetti.FloripaPublicTransportationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FloripaPublicTransportation;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C004A941C77BC340008DC7B /* Build configuration list for PBXProject "FloripaPublicTransportation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C004ABF1C77BC350008DC7B /* Debug */,
+				9C004AC01C77BC350008DC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C004AC11C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C004AC21C77BC350008DC7B /* Debug */,
+				9C004AC31C77BC350008DC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C004AC41C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C004AC51C77BC350008DC7B /* Debug */,
+				9C004AC61C77BC350008DC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C004AC71C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C004AC81C77BC350008DC7B /* Debug */,
+				9C004AC91C77BC350008DC7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C004A911C77BC340008DC7B /* Project object */;
+}
