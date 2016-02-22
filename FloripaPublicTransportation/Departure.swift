@@ -16,10 +16,10 @@ class Departure {
     }
     
     var calendar: Calendar?
-    var name: String?
+    var time: String?
     
-    init(calendar: String, name: String) {
+    init(calendar: String, time: String) {
         self.calendar = Calendar(rawValue: calendar)
-        self.name = name
+        self.time = time
     }
 }
