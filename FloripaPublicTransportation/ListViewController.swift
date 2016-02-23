@@ -57,12 +57,9 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Find routes"
-        
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "The navigation button that returns to the ListViewController"), style: .Plain, target: nil, action: nil)
         
         self.searchBar.delegate = self
-        self.searchBar.placeholder = "Street name (or part of it)"
         
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
@@ -120,10 +117,10 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         }
         
         if self.routes == nil || self.routes!.count == 0 {
-            return "No routes found"
+            return NSLocalizedString("No routes found", comment: "The section header title to show in ListViewController when no routes were found")
         }
         
-        return "Routes found"
+        return NSLocalizedString("Routes found", comment: "The section header title to show in ListViewController above the found routes")
     }
     
     // MARK: - UISearchBarDelegate

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>The user location is used for setting the map center, thus allowing a faster pick up of a street nearby.</string>
+	<string>The location is used for setting the map center, thus allowing a faster pick up of a street nearby.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

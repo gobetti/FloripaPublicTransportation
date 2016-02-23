@@ -98,15 +98,16 @@ class DetailViewController: UITableViewController {
     // MARK: Private constants definitions
     
     private let reuseIdentifier = "detailCell"
-    private let headerTitles: [String] = ["List of streets within the route", "Weekday timetable",
-        "Saturday timetable", "Sunday timetable"]
+    private let headerTitles: [String] = [
+        NSLocalizedString("List of streets within the route", comment: "The section header title to show in DetailViewController above the streets that compose the route"),
+            NSLocalizedString("Weekday timetable", comment: "The section header title to show in DetailViewController above the weekday timetable"),
+            NSLocalizedString("Saturday timetable", comment: "The section header title to show in DetailViewController above the Saturday timetable"),
+            NSLocalizedString("Sunday timetable", comment: "The section header title to show in DetailViewController above the Sunday timetable")]
 
     // MARK: - View delegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Route details"
         
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
