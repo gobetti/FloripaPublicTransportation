@@ -51,6 +51,8 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         
         self.title = "Find routes"
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        
         self.searchBar.delegate = self
     }
 
@@ -102,7 +104,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.endEditing(true)
         searchBar.resignFirstResponder()
-        streetToSearch = self.searchBar.text
+        self.streetToSearch = self.searchBar.text
     }
 
     // MARK: - Navigation
