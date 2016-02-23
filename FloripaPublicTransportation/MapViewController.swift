@@ -36,10 +36,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if placemarks == nil {
                     NSLog("Placemarks is nil")
                 } else {
-                    NSLog("Placemarks: %s", placemarks!)
+                    NSLog("Placemarks: \(placemarks!)")
                 }
                 if error != nil {
-                    NSLog("Error: %s", error!)
+                    NSLog("Error: \(error!.description)")
                 }
             }
             }
