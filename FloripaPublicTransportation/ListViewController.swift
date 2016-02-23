@@ -9,7 +9,27 @@
 import UIKit
 
 class ListViewController: UITableViewController, UISearchBarDelegate {
-    @IBOutlet weak var searchBar: UISearchBar!
+    // MARK: Public properties
+    
+    private var _streetToSearch: String? // stored property
+    var streetToSearch: String? {
+        get { return _streetToSearch }
+        set {
+            guard newValue != nil && newValue != _streetToSearch else {
+                return
+            }
+            
+            _streetToSearch = newValue
+            
+            RestApi.findRoutesByStopName(_streetToSearch!) { routes in
+                self.routes = routes
+            }
+        }
+    }
+    
+    // MARK: Private properties
+    
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     private var _routes: [Route]? // stored property
     private var routes: [Route]? { // computed property
@@ -22,12 +42,16 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    let reuseIdentifier = "routeCell"
-
+    private let reuseIdentifier = "routeCell"
+    
+    // MARK: - View delegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Find routes"
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         
         self.searchBar.delegate = self
     }
@@ -80,9 +104,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.endEditing(true)
         searchBar.resignFirstResponder()
-        RestApi.findRoutesByStopName(self.searchBar.text!) { routes in
-            self.routes = routes
-        }
+        self.streetToSearch = self.searchBar.text
     }
 
     // MARK: - Navigation
