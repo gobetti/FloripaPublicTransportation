@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     street = street.substringToIndex(commaIndex)
                 }
                 annotation.title = street
-                annotation.subtitle = "Find routes from this street?"
+                annotation.subtitle = NSLocalizedString("Search routes from this street?", comment: "The MapViewController's annotation subtitle")
             }
             else {
                 NSLog("Could not retrieve address.")
@@ -53,9 +53,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Select street"
-        self.descriptionLabel.text = "Touch and hold over a street to create a pin. Touch the pin to open a callout with the street\'s name and confirm to search routes from there."
         
         // Do any additional setup after loading the view.
         self.mapView.delegate = self
