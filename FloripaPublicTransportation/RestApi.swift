@@ -91,6 +91,8 @@ class RestApi {
                 do {
                     guard error == nil else {
                         NSLog("dataTaskWithRequest sent an error: \(error!.description)")
+                        // calls taskCompletion with an empty NSDictionary:
+                        taskCompletion(jsonRows: [NSDictionary]())
                         return
                     }
                     

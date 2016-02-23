@@ -30,6 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     street = street.substringToIndex(commaIndex)
                 }
                 annotation.title = street
+                annotation.subtitle = "Find routes from this street?"
             }
             else {
                 NSLog("Could not retrieve address.")
@@ -54,7 +55,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         
         self.title = "Select street"
-        self.descriptionLabel.text = "Touch and hold over a street to create a pin. Touch the pin to open a callout with the street\'s name. Touch the callout icon to search routes from that street."
+        self.descriptionLabel.text = "Touch and hold over a street to create a pin. Touch the pin to open a callout with the street\'s name and confirm to search routes from there."
         
         // Do any additional setup after loading the view.
         self.mapView.delegate = self
@@ -112,7 +113,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView.annotation = annotation
         annotationView.canShowCallout = true
         annotationView.pinTintColor = UIColor.redColor()
-        annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        
+        let okButton = UIButton(type: .System)
+        okButton.setTitle("Ok", forState: .Normal)
+        okButton.frame = CGRectMake(0, 0, annotationView.frame.width, annotationView.frame.height)
+        annotationView.rightCalloutAccessoryView = okButton
         
         return annotationView
     }

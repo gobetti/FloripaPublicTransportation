@@ -21,6 +21,9 @@ class DetailViewController: UITableViewController {
             
             _routeId = newValue
             
+            self.activityIndicator.startAnimating()
+            self.view.bringSubviewToFront(self.activityIndicator)
+            
             RestApi.findDeparturesByRouteId(_routeId!) { departures in
                 self.departures = departures
                 self.finishedLoadingDepartures = true
@@ -34,6 +37,7 @@ class DetailViewController: UITableViewController {
     
     // MARK: Private properties
     
+    private var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     private var stops: [Stop]?
     private var weekdayDepartures: [Departure]?
     private var saturdayDepartures: [Departure]?
@@ -73,6 +77,7 @@ class DetailViewController: UITableViewController {
             if finishedLoadingStops && finishedLoadingDepartures {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
                 })
             }
         }
@@ -84,6 +89,7 @@ class DetailViewController: UITableViewController {
             if finishedLoadingStops && finishedLoadingDepartures {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
                 })
             }
         }
@@ -101,6 +107,23 @@ class DetailViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Route details"
+        
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // at the moment viewDidLayoutSubviews() is called, the screen has already finished
+        // loading all its elements positions, so this is the perfect moment to (re)calculate
+        // the position of the activityIndicator (the center of the view):
+        
+        let activityIndicatorSize = self.activityIndicator.frame.width
+        self.activityIndicator.frame = CGRectMake(
+            (self.view.frame.width - activityIndicatorSize) / 2,
+            (self.view.frame.height - activityIndicatorSize) / 2,
+            activityIndicatorSize, activityIndicatorSize)
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,7 +140,7 @@ class DetailViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            cell.textLabel!.text = self.stops![indexPath.row].name
+            cell.textLabel!.text = self.stops![indexPath.row].name?.customCapitalizedString
         case 1:
             cell.textLabel!.text = self.weekdayDepartures![indexPath.row].time
         case 2:
