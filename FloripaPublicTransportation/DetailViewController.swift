@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UITableViewController {
     // MARK: Public properties
+    
     private var _routeId: Int? // stored property
     var routeId: Int? { // public computed property
         get { return _routeId }
@@ -32,6 +33,7 @@ class DetailViewController: UITableViewController {
     }
     
     // MARK: Private properties
+    
     private var stops: [Stop]?
     private var weekdayDepartures: [Departure]?
     private var saturdayDepartures: [Departure]?
@@ -61,6 +63,7 @@ class DetailViewController: UITableViewController {
     }
     
     // MARK: tableView.reloadData() logic
+    
     private var _finishedLoadingStops = false
     private var _finishedLoadingDepartures = false
     private var finishedLoadingStops: Bool {
@@ -87,11 +90,13 @@ class DetailViewController: UITableViewController {
     }
     
     // MARK: Private constants definitions
+    
     private let reuseIdentifier = "detailCell"
     private let headerTitles: [String] = ["List of streets within the route", "Weekday timetable",
         "Saturday timetable", "Sunday timetable"]
 
     // MARK: - View delegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
