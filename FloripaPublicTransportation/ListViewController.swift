@@ -21,19 +21,15 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             
             _streetToSearch = newValue
             
-            let activityIndicatorSize = self.activityIndicator.frame.width
-            self.activityIndicator.frame = CGRectMake(
-                (self.view.frame.width - activityIndicatorSize) / 2,
-                (self.view.frame.height - activityIndicatorSize) / 2,
-                activityIndicatorSize, activityIndicatorSize)
-            self.view.addSubview(self.activityIndicator)
+            self.routes?.removeAll()
             self.activityIndicator.startAnimating()
-            self.activityIndicator.hidesWhenStopped = true
             self.view.bringSubviewToFront(self.activityIndicator)
             
             RestApi.findRoutesByStopName(_streetToSearch!) { routes in
                 self.routes = routes
-                self.activityIndicator.stopAnimating()
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.activityIndicator.stopAnimating()
+                })
             }
         }
     }
@@ -66,6 +62,23 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         
         self.searchBar.delegate = self
+        
+        self.activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(self.activityIndicator)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // at the moment viewDidLayoutSubviews() is called, the screen has already finished
+        // loading all its elements positions, so this is the perfect moment to (re)calculate
+        // the position of the activityIndicator (the center of the view):
+        
+        let activityIndicatorSize = self.activityIndicator.frame.width
+        self.activityIndicator.frame = CGRectMake(
+            (self.view.frame.width - activityIndicatorSize) / 2,
+            (self.view.frame.height - activityIndicatorSize) / 2,
+            activityIndicatorSize, activityIndicatorSize)
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,7 +118,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             return ""
         }
         
-        if routes == nil || routes!.count == 0 {
+        if self.routes == nil || self.routes!.count == 0 {
             return "No routes found"
         }
         
@@ -117,7 +130,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.endEditing(true)
         searchBar.resignFirstResponder()
-        self.streetToSearch = self.searchBar.text
+        self.streetToSearch = searchBar.text
     }
 
     // MARK: - Navigation
@@ -128,7 +141,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         }
         
         let destinationVC = segue.destinationViewController as! DetailViewController
-        destinationVC.routeId = routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
+        destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
     }
 
 }
