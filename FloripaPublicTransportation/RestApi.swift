@@ -9,6 +9,7 @@
 import Foundation
 
 class RestApi {
+    /// The `completion` block should be such that an object receives the `routes` array.
     static func findRoutesByStopName(stopName: String, completion: (routes: [Route]) -> Void)
     {
         var stopNameEscaped = stopName
@@ -28,6 +29,7 @@ class RestApi {
         })
     }
     
+    /// The `completion` block should be such that an object receives the `stops` array.
     static func findStopsByRouteId(routeId: Int, completion: (stops: [Stop]) -> Void)
     {
         var stops = [Stop]()
@@ -42,6 +44,7 @@ class RestApi {
         })
     }
     
+    /// The `completion` block should be such that an object receives the `departures` array.
     static func findDeparturesByRouteId(routeId: Int, completion: (departures: [Departure]) -> Void)
     {
         var departures = [Departure]()
@@ -57,8 +60,8 @@ class RestApi {
     }
     
     /// Generic function to be called by any of the API POST methods.
-    /// The request is built upon the "url" and "params" arguments;
-    /// The "rows" returned from the JSON response can be parsed via the "taskCompletion" function argument.
+    /// The request is built upon the `url` and `params` arguments;
+    /// the `jsonRows` returned from the JSON response can be parsed via the `taskCompletion` function argument.
     private static func parseRequest(url: NSURL, params: NSDictionary, taskCompletion: (jsonRows: [NSDictionary]) -> Void)
     {
         let request = NSMutableURLRequest(URL: url)
@@ -78,26 +81,31 @@ class RestApi {
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: [])
         }
         catch let error as NSError {
-            NSLog("NSJSONSerialization.dataWithJSONObject threw an error: %s", error.description)
-            NSLog("Dictionary contents: %s", params)
+            NSLog("NSJSONSerialization.dataWithJSONObject threw an error: \(error.description)")
+            NSLog("Dictionary contents: \(params)")
         }
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request,
             completionHandler: { (data, response, error) in
                 do {
+                    guard error == nil else {
+                        NSLog("dataTaskWithRequest sent an error: \(error!.description)")
+                        return
+                    }
+                    
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
                     if let rows = json!["rows"] as? [NSDictionary] {
                         taskCompletion(jsonRows: rows)
                     }
                     else {
                         NSLog("Could not interpret \"rows\" as an array of NSDictionary")
-                        NSLog("JSON contents: %s", NSString(data: data!, encoding: NSUTF8StringEncoding)!)
+                        NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
                 catch let error as NSError {
-                    NSLog("NSJSONSerialization.JSONObjectWithData threw an error: %s", error.description)
-                    NSLog("JSON contents: %s", NSString(data: data!, encoding: NSUTF8StringEncoding)!)
+                    NSLog("NSJSONSerialization.JSONObjectWithData threw an error: \(error.description)")
+                    NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
                 }
         })
         
