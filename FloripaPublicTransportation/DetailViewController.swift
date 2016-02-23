@@ -140,7 +140,7 @@ class DetailViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            cell.textLabel!.text = self.stops![indexPath.row].name
+            cell.textLabel!.text = self.stops![indexPath.row].name?.customCapitalizedString
         case 1:
             cell.textLabel!.text = self.weekdayDepartures![indexPath.row].time
         case 2:
