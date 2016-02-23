@@ -21,8 +21,19 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             
             _streetToSearch = newValue
             
+            let activityIndicatorSize = self.activityIndicator.frame.width
+            self.activityIndicator.frame = CGRectMake(
+                (self.view.frame.width - activityIndicatorSize) / 2,
+                (self.view.frame.height - activityIndicatorSize) / 2,
+                activityIndicatorSize, activityIndicatorSize)
+            self.view.addSubview(self.activityIndicator)
+            self.activityIndicator.startAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+            self.view.bringSubviewToFront(self.activityIndicator)
+            
             RestApi.findRoutesByStopName(_streetToSearch!) { routes in
                 self.routes = routes
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -30,6 +41,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     // MARK: Private properties
     
     @IBOutlet private weak var searchBar: UISearchBar!
+    private var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     
     private var _routes: [Route]? // stored property
     private var routes: [Route]? { // computed property
