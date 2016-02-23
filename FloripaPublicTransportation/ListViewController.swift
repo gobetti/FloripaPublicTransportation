@@ -89,7 +89,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard section == 0 else {
-            NSLog("Wrong section number: \(indexPath.section)")
+            NSLog("Wrong section number: \(section)")
             return ""
         }
         
