@@ -125,7 +125,7 @@ class DetailViewController: UITableViewController {
         case 3:
             cell.textLabel!.text = self.sundayDepartures![indexPath.row].time
         default:
-            NSLog("Wrong section number: %u", indexPath.section)
+            NSLog("Wrong section number: \(indexPath.section)")
         }
         
         return cell
@@ -143,7 +143,7 @@ class DetailViewController: UITableViewController {
         case 3:
             return self.sundayDepartures == nil ? 0 : self.sundayDepartures!.count
         default:
-            NSLog("Wrong section number: %u", section)
+            NSLog("Wrong section number: \(indexPath.section)")
             return 0
         }
     }
@@ -156,7 +156,7 @@ class DetailViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard section < self.headerTitles.count else {
-            NSLog("Wrong section number: %u", section)
+            NSLog("Wrong section number: \(indexPath.section)")
             return ""
         }
         
