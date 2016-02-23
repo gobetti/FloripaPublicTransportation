@@ -56,7 +56,13 @@
                             <outlet property="delegate" destination="M3M-Tj-syc" id="SU1-xn-C9A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sQz-WE-jZa"/>
+                    <navigationItem key="navigationItem" id="sQz-WE-jZa">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="lsQ-qv-dAr">
+                            <connections>
+                                <segue destination="46V-ab-Vew" kind="show" id="XSC-fM-plN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="u9F-eS-xsr" id="w3O-At-7nh"/>
                     </connections>
@@ -94,6 +100,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQc-oU-wUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="958" y="250"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="JpT-C7-dvv">
+            <objects>
+                <viewController id="46V-ab-Vew" customClass="MapViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oEa-iN-S4c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zte-o9-Tns"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JVS-Hl-ZEo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-r8-RgE">
+                                <rect key="frame" x="0.0" y="89.5" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yza-1g-864" appends="YES" id="uU3-3A-LMg"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNX-Co-pRu">
+                                <rect key="frame" x="0.0" y="69" width="600" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98899705500000001" green="0.95474900200000001" blue="0.78527696920000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lrc-r8-RgE" firstAttribute="top" secondItem="BNX-Co-pRu" secondAttribute="bottom" id="MQc-Or-kjg"/>
+                            <constraint firstItem="BNX-Co-pRu" firstAttribute="width" secondItem="JVS-Hl-ZEo" secondAttribute="width" id="RrI-3z-DLz"/>
+                            <constraint firstItem="Lrc-r8-RgE" firstAttribute="width" secondItem="JVS-Hl-ZEo" secondAttribute="width" id="WIO-CF-ZC9"/>
+                            <constraint firstItem="Lrc-r8-RgE" firstAttribute="centerX" secondItem="JVS-Hl-ZEo" secondAttribute="centerX" id="Zxq-eh-AyF"/>
+                            <constraint firstItem="BNX-Co-pRu" firstAttribute="centerX" secondItem="JVS-Hl-ZEo" secondAttribute="centerX" id="bIb-hg-xXG"/>
+                            <constraint firstItem="BNX-Co-pRu" firstAttribute="top" secondItem="oEa-iN-S4c" secondAttribute="bottom" constant="5" id="h7L-yk-W84"/>
+                            <constraint firstItem="Lrc-r8-RgE" firstAttribute="height" secondItem="JVS-Hl-ZEo" secondAttribute="height" id="w7O-VP-2Fi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="BNX-Co-pRu" id="ftn-eB-4iA"/>
+                        <outlet property="mapView" destination="Lrc-r8-RgE" id="hY6-5k-o0T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qx-5W-adp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="yza-1g-864">
+                    <connections>
+                        <action selector="addPin:" destination="46V-ab-Vew" id="lxM-bV-wn1"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="958" y="-422"/>
         </scene>
     </scenes>
 </document>
