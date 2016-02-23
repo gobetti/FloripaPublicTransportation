@@ -86,6 +86,11 @@ class RestApi {
         let task = session.dataTaskWithRequest(request,
             completionHandler: { (data, response, error) in
                 do {
+                    guard error == nil else {
+                        NSLog("dataTaskWithRequest sent an error: \(error!.description)")
+                        return
+                    }
+                    
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
                     if let rows = json!["rows"] as? [NSDictionary] {
                         taskCompletion(jsonRows: rows)
