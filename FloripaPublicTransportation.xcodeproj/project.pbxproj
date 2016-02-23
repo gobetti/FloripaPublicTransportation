@@ -21,6 +21,7 @@
 		9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADC1C77E3200008DC7B /* Departure.swift */; };
 		9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */; };
 		9C2827A21C7BBFC200CBCCE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2827A11C7BBFC200CBCCE1 /* MapKit.framework */; };
+		9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		9C004ADC1C77E3200008DC7B /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9C2827A11C7BBFC200CBCCE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CustomCapitalizedString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				9C004AD71C77DC700008DC7B /* Model */,
 				9C004AD61C77DBE30008DC7B /* View Controllers */,
 				9C004AD51C77DBDB0008DC7B /* UI */,
+				9CE2CB641C7CD7D400E240DA /* Extensions */,
 				9C004AD41C77DBC50008DC7B /* Supporting files */,
 			);
 			path = FloripaPublicTransportation;
@@ -185,6 +188,14 @@
 				9C004ADA1C77E3160008DC7B /* Stop.swift */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		9CE2CB641C7CD7D400E240DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +341,7 @@
 				9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */,
 				9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */,
 				9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */,
+				9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */,
 				9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

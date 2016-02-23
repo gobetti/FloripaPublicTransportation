@@ -62,6 +62,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         
         self.searchBar.delegate = self
+        self.searchBar.placeholder = "Street name (or part of it)"
         
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
@@ -93,7 +94,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
-        cell.textLabel!.text = routes![indexPath.row].name
+        cell.textLabel!.text = routes![indexPath.row].name?.customCapitalizedString
         
         return cell
     }
