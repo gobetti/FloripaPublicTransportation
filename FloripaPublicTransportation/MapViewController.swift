@@ -69,6 +69,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
 
+    /// This function should be called if the user has authorized to share his location with the
+    /// application: this authorization could have been previously granted or it could happen
+    /// during the lifetime of `MapViewController`
     private func showAndUpdateUserLocation()
     {
         self.locationManager.startUpdatingLocation()
@@ -81,6 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // MARK: - Delegates
+    
     // MARK: CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
