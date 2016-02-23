@@ -78,8 +78,8 @@ class RestApi {
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: [])
         }
         catch let error as NSError {
-            NSLog("NSJSONSerialization.dataWithJSONObject threw an error: %s", error.description)
-            NSLog("Dictionary contents: %s", params)
+            NSLog("NSJSONSerialization.dataWithJSONObject threw an error: \(error.description)")
+            NSLog("Dictionary contents: \(params)")
         }
         
         let session = NSURLSession.sharedSession()
@@ -92,12 +92,12 @@ class RestApi {
                     }
                     else {
                         NSLog("Could not interpret \"rows\" as an array of NSDictionary")
-                        NSLog("JSON contents: %s", NSString(data: data!, encoding: NSUTF8StringEncoding)!)
+                        NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
                 catch let error as NSError {
-                    NSLog("NSJSONSerialization.JSONObjectWithData threw an error: %s", error.description)
-                    NSLog("JSON contents: %s", NSString(data: data!, encoding: NSUTF8StringEncoding)!)
+                    NSLog("NSJSONSerialization.JSONObjectWithData threw an error: \(error.description)")
+                    NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
                 }
         })
         
