@@ -24,6 +24,13 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         OHHTTPStubs.removeAllStubs()
     }
     
+    func testEmptyDataFindRoutesByStopName() {
+        testInvalidFindRoutesByStopName() {_ in
+            let stubData = "".dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+    }
+    
     func testNotAJsonFindRoutesByStopName() {
         testInvalidFindRoutesByStopName() {_ in
             let stubData = "Just a dummy string".dataUsingEncoding(NSUTF8StringEncoding)
@@ -32,10 +39,13 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     }
     
     func testEmptyRowsFindRoutesByStopName() {
-        testInvalidFindRoutesByStopName() {_ in
+        testValidFindRoutesByStopName( {_ in
             let obj = ["rows":[], "rowsAffected":"0"]
             return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
-        }
+        },
+            completionTests: { routes in
+                XCTAssertEqual(routes.count, 0, "The returned array must be empty")
+        })
     }
     
     func testDictionaryFindRoutesByStopName() {
