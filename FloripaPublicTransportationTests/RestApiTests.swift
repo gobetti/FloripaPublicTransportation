@@ -11,8 +11,9 @@ import XCTest
 import OHHTTPStubs
 
 class RestApiTests: XCTestCase, ExpectationProtocol {
+    // MARK: - Set up & Tear down
     
-    // PThis method is called before the invocation of each test method in the class.
+    // This method is called before the invocation of each test method in the class.
     override func setUp() {
         super.setUp()
         
@@ -26,6 +27,8 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         
         OHHTTPStubs.removeAllStubs()
     }
+    
+    // MARK: - findRoutesByStopName
     
     func testEmptyDataFindRoutesByStopName() {
         testInvalidFindRoutesByStopName() {_ in
@@ -73,6 +76,8 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         })
     }
     
+    // MARK: Generic functions
+    
     /// Generic function to be used by tests of `findRoutesByStopName` that use a valid JSON
     /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     /// - Parameter completionTests: the block of tests to be executed against the returned array
@@ -109,6 +114,10 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
             XCTAssertNil(error, "Expectation timeout")
         }
     }
+    
+    // MARK: - findStopsByRouteId
+    
+    // MARK: Generic functions
     
     /// Generic function to be used by tests of `findStopsByRouteId` that use a valid JSON
     /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
@@ -147,6 +156,10 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         }
     }
     
+    // MARK: - findDeparturesByRouteId
+    
+    // MARK: Generic functions
+    
     /// Generic function to be used by tests of `findDeparturesByRouteId` that use a valid JSON
     /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     /// - Parameter completionTests: the block of tests to be executed against the returned array
@@ -183,6 +196,8 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
             XCTAssertNil(error, "Expectation timeout")
         }
     }
+    
+    // MARK: - XCTestExpectation definitions
     
     let expectationTimeout: NSTimeInterval = 500 // just a big enough timeout for the expectations
     
