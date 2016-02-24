@@ -98,7 +98,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         testFindRoutesByStopName(stubResponse) { routes in
             XCTAssertNotNil(routes, "The returned array must not be nil")
             XCTAssertEqual(routes!.count, 0, "The returned array must be empty")
-            XCTAssertTrue(SystemLogAccessor.NSLogArray().count > nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
+            XCTAssertGreaterThan(SystemLogAccessor.NSLogArray().count, nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
             // @todo Consider verifying the messages instead of just the count
         }
     }
@@ -148,7 +148,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         testFindStopsByRouteId(stubResponse) { stops in
             XCTAssertNotNil(stops, "The returned array must not be nil")
             XCTAssertEqual(stops!.count, 0, "The returned array must be empty")
-            XCTAssertTrue(SystemLogAccessor.NSLogArray().count > nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
+            XCTAssertGreaterThan(SystemLogAccessor.NSLogArray().count, nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
             // @todo Consider verifying the messages instead of just the count
         }
     }
@@ -198,7 +198,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         testFindDeparturesByRouteId(stubResponse) { departures in
             XCTAssertNotNil(departures, "The returned array must not be nil")
             XCTAssertEqual(departures!.count, 0, "The returned array must be empty")
-            XCTAssertTrue(SystemLogAccessor.NSLogArray().count > nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
+            XCTAssertGreaterThan(SystemLogAccessor.NSLogArray().count, nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
             // @todo Consider verifying the messages instead of just the count
         }
     }
@@ -226,7 +226,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     
     // MARK: - XCTestExpectation definitions
     
-    private let expectationTimeout: NSTimeInterval = 500 // just a big enough timeout for the expectations
+    private let expectationTimeout: NSTimeInterval = 5 // just a big enough timeout for the expectations
     
     private var expectation: XCTestExpectation?
     

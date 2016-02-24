@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RestApi: ExpectationProtocol {
+class RestApi {
     /// The `completion` block should be such that an object receives the `routes` array.
     static func findRoutesByStopName(stopName: String, completion: (routes: [Route]) -> Void)
     {
@@ -120,7 +120,4 @@ class RestApi: ExpectationProtocol {
     }
     
     static var delegate: ExpectationProtocol?
-    func onDone(results: String) {
-        // does nothing here; this function is only useful for fulfilling an XCTestExpectation on a test case
-    }
 }
