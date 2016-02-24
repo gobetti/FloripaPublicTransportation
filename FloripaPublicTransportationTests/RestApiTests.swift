@@ -48,7 +48,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
         testValidFindRoutesByStopName( {_ in
             let obj = ["rows":[], "rowsAffected":"0"]
             return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
-        },
+            },
             completionTests: { routes in
                 XCTAssertEqual(routes.count, 0, "The returned array must be empty")
         })
@@ -56,7 +56,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     
     func testDictionaryFindRoutesByStopName() {
         testValidFindRoutesByStopName({ _ in
-            let obj = ["rows":["id":22,"shortName":"131","longName":"AGRONÔMICA VIA GAMA D'EÇA","lastModifiedDate":"2009-10-26T02:00:00+0000","agencyId":9], "rowsAffected":"0"]
+            let obj = ["rows":[["id":22,"shortName":"131","longName":"AGRONÔMICA VIA GAMA D'EÇA","lastModifiedDate":"2009-10-26T02:00:00+0000","agencyId":9]], "rowsAffected":"0"]
             return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
             },
             completionTests: { routes in
@@ -84,8 +84,8 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     private func testValidFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock, completionTests: (routes: [Route]) -> Void)
     {
         testFindRoutesByStopName(stubResponse) { routes in
-                XCTAssertNotNil(routes, "The returned array must not be nil")
-                completionTests(routes: routes!)
+            XCTAssertNotNil(routes, "The returned array must not be nil")
+            completionTests(routes: routes!)
         }
     }
     
@@ -95,8 +95,8 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     private func testInvalidFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock)
     {
         testFindRoutesByStopName(stubResponse) { routes in
-                XCTAssertNotNil(routes, "The returned array must not be nil")
-                XCTAssertEqual(routes!.count, 0, "The returned array must be empty")
+            XCTAssertNotNil(routes, "The returned array must not be nil")
+            XCTAssertEqual(routes!.count, 0, "The returned array must be empty")
         }
     }
     
@@ -107,12 +107,18 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     {
         stub(isHost("api.appglu.com") && isPath("/v1/queries/findRoutesByStopName/run"), response: stubResponse)
         
-        RestApi.findRoutesByStopName("whatever", completion: restApiCompletion)
+        var didExecuteCompletion = false
+        RestApi.findRoutesByStopName("whatever", completion: { routes in
+            restApiCompletion(routes: routes)
+            didExecuteCompletion = true
+        })
         
         // loop until the expectation is fulfilled:
         waitForExpectationsWithTimeout(expectationTimeout) { error in
             XCTAssertNil(error, "Expectation timeout")
         }
+        
+        XCTAssertTrue(didExecuteCompletion, "The completion block must be executed")
     }
     
     // MARK: - findStopsByRouteId
@@ -148,12 +154,18 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     {
         stub(isHost("api.appglu.com") && isPath("/v1/queries/findStopsByRouteId/run"), response: stubResponse)
         
-        RestApi.findStopsByRouteId(7664576, completion: restApiCompletion)
+        var didExecuteCompletion = false
+        RestApi.findStopsByRouteId(7664576, completion: { stops in
+            restApiCompletion(stops: stops)
+            didExecuteCompletion = true
+        })
         
         // loop until the expectation is fulfilled:
         waitForExpectationsWithTimeout(expectationTimeout) { error in
             XCTAssertNil(error, "Expectation timeout")
         }
+        
+        XCTAssertTrue(didExecuteCompletion, "The completion block must be executed")
     }
     
     // MARK: - findDeparturesByRouteId
@@ -189,19 +201,25 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     {
         stub(isHost("api.appglu.com") && isPath("/v1/queries/findDeparturesByRouteId/run"), response: stubResponse)
         
-        RestApi.findDeparturesByRouteId(7664576, completion: restApiCompletion)
+        var didExecuteCompletion = false
+        RestApi.findDeparturesByRouteId(7664576, completion: { departures in
+            restApiCompletion(departures: departures)
+            didExecuteCompletion = true
+        })
         
         // loop until the expectation is fulfilled:
         waitForExpectationsWithTimeout(expectationTimeout) { error in
             XCTAssertNil(error, "Expectation timeout")
         }
+        
+        XCTAssertTrue(didExecuteCompletion, "The completion block must be executed")
     }
     
     // MARK: - XCTestExpectation definitions
     
-    let expectationTimeout: NSTimeInterval = 500 // just a big enough timeout for the expectations
+    private let expectationTimeout: NSTimeInterval = 500 // just a big enough timeout for the expectations
     
-    var expectation: XCTestExpectation?
+    private var expectation: XCTestExpectation?
     
     func onDone(results: String){
         expectation?.fulfill()

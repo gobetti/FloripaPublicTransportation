@@ -92,12 +92,14 @@ class RestApi: ExpectationProtocol {
                     NSLog("dataTaskWithRequest sent an error: \(error!.description)")
                     // calls taskCompletion with an empty NSDictionary:
                     taskCompletion(jsonRows: [NSDictionary]())
+                    delegate?.onDone("foo")
                     return
                 }
                 
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
                     if let rows = json!["rows"] as? [NSDictionary] {
+                        // "what to do with the json rows" logic:
                         taskCompletion(jsonRows: rows)
                     }
                     else {
@@ -108,6 +110,8 @@ class RestApi: ExpectationProtocol {
                 catch let error as NSError {
                     NSLog("NSJSONSerialization.JSONObjectWithData threw an error: \(error.description)")
                     NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
+                    // calls taskCompletion with an empty NSDictionary:
+                    taskCompletion(jsonRows: [NSDictionary]())
                 }
                 delegate?.onDone("foo")
         })
