@@ -94,9 +94,12 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     private func testInvalidFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock)
     {
+        let nsLogArrayCountBefore = SystemLogAccessor.NSLogArray().count
         testFindRoutesByStopName(stubResponse) { routes in
             XCTAssertNotNil(routes, "The returned array must not be nil")
             XCTAssertEqual(routes!.count, 0, "The returned array must be empty")
+            XCTAssertTrue(SystemLogAccessor.NSLogArray().count > nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
+            // @todo Consider verifying the messages instead of just the count
         }
     }
     
@@ -141,9 +144,12 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     private func testInvalidFindStopsByRouteId(stubResponse: OHHTTPStubsResponseBlock)
     {
+        let nsLogArrayCountBefore = SystemLogAccessor.NSLogArray().count
         testFindStopsByRouteId(stubResponse) { stops in
             XCTAssertNotNil(stops, "The returned array must not be nil")
             XCTAssertEqual(stops!.count, 0, "The returned array must be empty")
+            XCTAssertTrue(SystemLogAccessor.NSLogArray().count > nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
+            // @todo Consider verifying the messages instead of just the count
         }
     }
     
@@ -188,9 +194,12 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     private func testInvalidFindDeparturesByRouteId(stubResponse: OHHTTPStubsResponseBlock)
     {
+        let nsLogArrayCountBefore = SystemLogAccessor.NSLogArray().count
         testFindDeparturesByRouteId(stubResponse) { departures in
             XCTAssertNotNil(departures, "The returned array must not be nil")
             XCTAssertEqual(departures!.count, 0, "The returned array must be empty")
+            XCTAssertTrue(SystemLogAccessor.NSLogArray().count > nsLogArrayCountBefore, "This application should have increased its number of logs due to the detected errors")
+            // @todo Consider verifying the messages instead of just the count
         }
     }
     
