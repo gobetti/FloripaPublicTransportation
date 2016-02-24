@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RestApi {
+class RestApi: ExpectationProtocol {
     /// The `completion` block should be such that an object receives the `routes` array.
     static func findRoutesByStopName(stopName: String, completion: (routes: [Route]) -> Void)
     {
@@ -45,7 +45,7 @@ class RestApi {
     }
     
     /// The `completion` block should be such that an object receives the `departures` array.
-    static func findDeparturesByRouteId(routeId: Int, completion: (departures: [Departure]) -> Void)
+    class func findDeparturesByRouteId(routeId: Int, completion: (departures: [Departure]) -> Void)
     {
         var departures = [Departure]()
         parseRequest(NSURL(string: "https://api.appglu.com/v1/queries/findDeparturesByRouteId/run")!, params: ["routeId":"\(routeId)"], taskCompletion: { jsonRows in
@@ -88,14 +88,14 @@ class RestApi {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request,
             completionHandler: { (data, response, error) in
+                guard error == nil else {
+                    NSLog("dataTaskWithRequest sent an error: \(error!.description)")
+                    // calls taskCompletion with an empty NSDictionary:
+                    taskCompletion(jsonRows: [NSDictionary]())
+                    return
+                }
+                
                 do {
-                    guard error == nil else {
-                        NSLog("dataTaskWithRequest sent an error: \(error!.description)")
-                        // calls taskCompletion with an empty NSDictionary:
-                        taskCompletion(jsonRows: [NSDictionary]())
-                        return
-                    }
-                    
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
                     if let rows = json!["rows"] as? [NSDictionary] {
                         taskCompletion(jsonRows: rows)
@@ -109,8 +109,14 @@ class RestApi {
                     NSLog("NSJSONSerialization.JSONObjectWithData threw an error: \(error.description)")
                     NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
                 }
+                delegate?.onDone("foo")
         })
         
         task.resume()
+    }
+    
+    static var delegate: ExpectationProtocol?
+    func onDone(results: String) {
+        // does nothing here; this function is only useful for fulfilling an XCTestExpectation on a test case
     }
 }

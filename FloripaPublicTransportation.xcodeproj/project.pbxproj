@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D376DF558E5F9FCE39DF5A8 /* Pods_FloripaPublicTransportationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7901326035D125AB473833A /* Pods_FloripaPublicTransportationTests.framework */; };
 		9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004A9C1C77BC350008DC7B /* AppDelegate.swift */; };
 		9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA01C77BC350008DC7B /* Main.storyboard */; };
 		9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA31C77BC350008DC7B /* Assets.xcassets */; };
 		9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */; };
-		9C004AB21C77BC350008DC7B /* FloripaPublicTransportationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */; };
 		9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */; };
 		9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACC1C77BF780008DC7B /* ListViewController.swift */; };
 		9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACE1C77C2890008DC7B /* DetailViewController.swift */; };
@@ -19,8 +19,13 @@
 		9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD81C77E1910008DC7B /* RestApi.swift */; };
 		9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADA1C77E3160008DC7B /* Stop.swift */; };
 		9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADC1C77E3200008DC7B /* Departure.swift */; };
+		9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */; };
+		9C2485901C7D518300BE4CA8 /* ExpectationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */; };
 		9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */; };
 		9C2827A21C7BBFC200CBCCE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2827A11C7BBFC200CBCCE1 /* MapKit.framework */; };
+		9C3AC42D1C7D60E900AEC82E /* findRoutes.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42C1C7D60E900AEC82E /* findRoutes.json */; };
+		9C3AC4301C7D646200AEC82E /* findDepartures.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42E1C7D646200AEC82E /* findDepartures.json */; };
+		9C3AC4311C7D646200AEC82E /* findStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42F1C7D646200AEC82E /* findStops.json */; };
 		9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */; };
 		9CE2CB6E1C7CF59200E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB701C7CF59200E240DA /* InfoPlist.strings */; };
 		9CE2CB731C7CF59200E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB751C7CF59200E240DA /* InfoPlist.strings */; };
@@ -46,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A05B0A018E1D71DF75EBC65 /* Pods-FloripaPublicTransportationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloripaPublicTransportationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloripaPublicTransportationTests/Pods-FloripaPublicTransportationTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C004A991C77BC350008DC7B /* FloripaPublicTransportation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloripaPublicTransportation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C004A9C1C77BC350008DC7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C004AA11C77BC350008DC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,7 +59,6 @@
 		9C004AA61C77BC350008DC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C004AA81C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C004AAD1C77BC350008DC7B /* FloripaPublicTransportationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationTests.swift; sourceTree = "<group>"; };
 		9C004AB31C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationUITests.swift; sourceTree = "<group>"; };
@@ -64,8 +69,13 @@
 		9C004AD81C77E1910008DC7B /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		9C004ADA1C77E3160008DC7B /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		9C004ADC1C77E3200008DC7B /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiTests.swift; sourceTree = "<group>"; };
+		9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationProtocol.swift; sourceTree = "<group>"; };
 		9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9C2827A11C7BBFC200CBCCE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9C3AC42C1C7D60E900AEC82E /* findRoutes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findRoutes.json; sourceTree = "<group>"; };
+		9C3AC42E1C7D646200AEC82E /* findDepartures.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findDepartures.json; sourceTree = "<group>"; };
+		9C3AC42F1C7D646200AEC82E /* findStops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findStops.json; sourceTree = "<group>"; };
 		9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CustomCapitalizedString.swift"; sourceTree = "<group>"; };
 		9CE2CB6A1C7CF04A00E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		9CE2CB6B1C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -73,6 +83,8 @@
 		9CE2CB741C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		9CE2CB791C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9CE2CB7E1C7CF59300E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D091B655507DEF37AC587FBB /* Pods-FloripaPublicTransportationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloripaPublicTransportationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FloripaPublicTransportationTests/Pods-FloripaPublicTransportationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7901326035D125AB473833A /* Pods_FloripaPublicTransportationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FloripaPublicTransportationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D376DF558E5F9FCE39DF5A8 /* Pods_FloripaPublicTransportationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070509EE9E12AEB7F4897A9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7901326035D125AB473833A /* Pods_FloripaPublicTransportationTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9C004A901C77BC340008DC7B = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +130,8 @@
 				9C004AB01C77BC350008DC7B /* FloripaPublicTransportationTests */,
 				9C004ABB1C77BC350008DC7B /* FloripaPublicTransportationUITests */,
 				9C004A9A1C77BC350008DC7B /* Products */,
+				F43E947371E45935A494CFD5 /* Pods */,
+				070509EE9E12AEB7F4897A9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				9CE2CB7F1C7CF59300E240DA /* InfoPlist.strings */,
-				9C004AB11C77BC350008DC7B /* FloripaPublicTransportationTests.swift */,
 				9C004AB31C77BC350008DC7B /* Info.plist */,
+				9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */,
 			);
 			path = FloripaPublicTransportationTests;
 			sourceTree = "<group>";
@@ -157,6 +180,7 @@
 		9C004AD41C77DBC50008DC7B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				9C3AC4321C7D646500AEC82E /* JSON examples */,
 				9CE2CB7A1C7CF59200E240DA /* Localizable.strings */,
 				9CE2CB751C7CF59200E240DA /* InfoPlist.strings */,
 				9C004A9C1C77BC350008DC7B /* AppDelegate.swift */,
@@ -190,6 +214,7 @@
 			children = (
 				9C004ADE1C77E32A0008DC7B /* Entities */,
 				9C004AD81C77E1910008DC7B /* RestApi.swift */,
+				9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -204,12 +229,31 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		9C3AC4321C7D646500AEC82E /* JSON examples */ = {
+			isa = PBXGroup;
+			children = (
+				9C3AC42C1C7D60E900AEC82E /* findRoutes.json */,
+				9C3AC42E1C7D646200AEC82E /* findDepartures.json */,
+				9C3AC42F1C7D646200AEC82E /* findStops.json */,
+			);
+			name = "JSON examples";
+			sourceTree = "<group>";
+		};
 		9CE2CB641C7CD7D400E240DA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		F43E947371E45935A494CFD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D091B655507DEF37AC587FBB /* Pods-FloripaPublicTransportationTests.debug.xcconfig */,
+				0A05B0A018E1D71DF75EBC65 /* Pods-FloripaPublicTransportationTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C004AC41C77BC350008DC7B /* Build configuration list for PBXNativeTarget "FloripaPublicTransportationTests" */;
 			buildPhases = (
+				FCFD7091A8BA8DB7C8991A9F /* Check Pods Manifest.lock */,
 				9C004AA91C77BC350008DC7B /* Sources */,
 				9C004AAA1C77BC350008DC7B /* Frameworks */,
 				9C004AAB1C77BC350008DC7B /* Resources */,
+				B52D9C6E8364B1A3E1583E47 /* Embed Pods Frameworks */,
+				A754099C3EC351CC814E77C1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,9 +368,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C3AC4311C7D646200AEC82E /* findStops.json in Resources */,
+				9C3AC42D1C7D60E900AEC82E /* findRoutes.json in Resources */,
 				9CE2CB781C7CF59200E240DA /* Localizable.strings in Resources */,
 				9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */,
 				9CE2CB731C7CF59200E240DA /* InfoPlist.strings in Resources */,
+				9C3AC4301C7D646200AEC82E /* findDepartures.json in Resources */,
 				9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */,
 				9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */,
 			);
@@ -347,6 +397,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A754099C3EC351CC814E77C1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FloripaPublicTransportationTests/Pods-FloripaPublicTransportationTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B52D9C6E8364B1A3E1583E47 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FloripaPublicTransportationTests/Pods-FloripaPublicTransportationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCFD7091A8BA8DB7C8991A9F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9C004A951C77BC350008DC7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -354,6 +452,7 @@
 			files = (
 				9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */,
 				9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */,
+				9C2485901C7D518300BE4CA8 /* ExpectationProtocol.swift in Sources */,
 				9C004AD31C77DB480008DC7B /* Route.swift in Sources */,
 				9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */,
 				9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */,
@@ -368,7 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C004AB21C77BC350008DC7B /* FloripaPublicTransportationTests.swift in Sources */,
+				9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +653,7 @@
 		};
 		9C004AC51C77BC350008DC7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D091B655507DEF37AC587FBB /* Pods-FloripaPublicTransportationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = FloripaPublicTransportationTests/Info.plist;
@@ -566,6 +666,7 @@
 		};
 		9C004AC61C77BC350008DC7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A05B0A018E1D71DF75EBC65 /* Pods-FloripaPublicTransportationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = FloripaPublicTransportationTests/Info.plist;
