@@ -61,36 +61,36 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     }
     
     /// Generic function to be used by tests of `findRoutesByStopName` that use a valid JSON
+    /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     private func testValidFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock, completionTests: (routes: [Route]) -> Void)
     {
         testFindRoutesByStopName(stubResponse) { routes in
-            RestApi.findRoutesByStopName("whatever") { routes in
-                XCTAssertNotNil(routes, "The returned array must be not nil")
-                completionTests(routes: routes)
-            }
+                XCTAssertNotNil(routes, "The returned array must not be nil")
+                completionTests(routes: routes!)
         }
     }
     
     /// Generic function to be used by tests of `findRoutesByStopName` that use an invalid JSON
     /// (or none at all)
+    /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
     private func testInvalidFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock)
     {
         testFindRoutesByStopName(stubResponse) { routes in
-            RestApi.findRoutesByStopName("whatever") { routes in
-                XCTAssertNotNil(routes, "The returned array must be not nil")
-                XCTAssertEqual(routes.count, 0, "The returned array must be empty")
-            }
+                XCTAssertNotNil(routes, "The returned array must not be nil")
+                XCTAssertEqual(routes!.count, 0, "The returned array must be empty")
         }
     }
     
     /// Generic function to be used by any test of `findRoutesByStopName`
-    private func testFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock, restApiCall: (routes: [Route]?) -> Void)
+    /// - Parameter stubResponse: the block that returns an `OHHTTPStubsResponse` with stubbed NSData/NSDictionary
+    /// - Parameter restApiCompletion: the `findRoutesByStopName` completion block
+    private func testFindRoutesByStopName(stubResponse: OHHTTPStubsResponseBlock, restApiCompletion: (routes: [Route]?) -> Void)
     {
         stub(isHost("api.appglu.com") && isPath("/v1/queries/findRoutesByStopName/run"), response: stubResponse)
         
         expectation = expectationWithDescription("foo")
         RestApi.delegate = self // allowing the RestApi to execute our mock onDone() function
-        restApiCall(routes: [Route]())
+        RestApi.findRoutesByStopName("whatever", completion: restApiCompletion)
         
         // loop until the expectation is fulfilled:
         waitForExpectationsWithTimeout(expectationTimeout) { error in
