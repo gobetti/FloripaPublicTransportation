@@ -125,7 +125,6 @@
 		9C004A9B1C77BC350008DC7B /* FloripaPublicTransportation */ = {
 			isa = PBXGroup;
 			children = (
-				9C004ADE1C77E32A0008DC7B /* Entities */,
 				9C004AD71C77DC700008DC7B /* Model */,
 				9C004AD61C77DBE30008DC7B /* View Controllers */,
 				9C004AD51C77DBDB0008DC7B /* UI */,
@@ -189,6 +188,7 @@
 		9C004AD71C77DC700008DC7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C004ADE1C77E32A0008DC7B /* Entities */,
 				9C004AD81C77E1910008DC7B /* RestApi.swift */,
 			);
 			name = Model;

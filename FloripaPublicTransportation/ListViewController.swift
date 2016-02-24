@@ -12,7 +12,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     // MARK: Public properties
     
     private var _streetToSearch: String? // stored property
-    var streetToSearch: String? {
+    var streetToSearch: String? { // public computed property
         get { return _streetToSearch }
         set {
             guard newValue != nil && newValue != _streetToSearch else {
