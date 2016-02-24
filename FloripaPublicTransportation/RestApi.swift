@@ -45,7 +45,7 @@ class RestApi: ExpectationProtocol {
     }
     
     /// The `completion` block should be such that an object receives the `departures` array.
-    class func findDeparturesByRouteId(routeId: Int, completion: (departures: [Departure]) -> Void)
+    static func findDeparturesByRouteId(routeId: Int, completion: (departures: [Departure]) -> Void)
     {
         var departures = [Departure]()
         parseRequest(NSURL(string: "https://api.appglu.com/v1/queries/findDeparturesByRouteId/run")!, params: ["routeId":"\(routeId)"], taskCompletion: { jsonRows in
