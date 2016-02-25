@@ -24,7 +24,7 @@
         <!--Search routes-->
         <scene sceneID="3UW-L7-g2R">
             <objects>
-                <tableViewController id="M3M-Tj-syc" customClass="ListViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="M3M-Tj-syc" customClass="RoutesListViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oYq-Jd-VuG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +70,7 @@
         <!--Route details-->
         <scene sceneID="vCi-jG-2Eq">
             <objects>
-                <tableViewController id="I6L-Fe-R07" customClass="DetailViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="I6L-Fe-R07" customClass="RouteDetailViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mdM-Q1-6KV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

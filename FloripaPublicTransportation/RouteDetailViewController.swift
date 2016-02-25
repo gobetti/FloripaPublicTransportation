@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  RouteDetailViewController.swift
 //  FloripaPublicTransportation
 //
 //  Created by Marcelo Gobetti on 2/19/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class RouteDetailViewController: UITableViewController {
     // MARK: Public properties
     
     private var _routeId: Int? // stored property
@@ -99,10 +99,10 @@ class DetailViewController: UITableViewController {
     
     private let reuseIdentifier = "detailCell"
     private let headerTitles: [String] = [
-        NSLocalizedString("List of streets within the route", comment: "The section header title to show in DetailViewController above the streets that compose the route"),
-            NSLocalizedString("Weekday timetable", comment: "The section header title to show in DetailViewController above the weekday timetable"),
-            NSLocalizedString("Saturday timetable", comment: "The section header title to show in DetailViewController above the Saturday timetable"),
-            NSLocalizedString("Sunday timetable", comment: "The section header title to show in DetailViewController above the Sunday timetable")]
+        NSLocalizedString("List of streets within the route", comment: "The section header title to show in RouteDetailViewController above the streets that compose the route"),
+            NSLocalizedString("Weekday timetable", comment: "The section header title to show in RouteDetailViewController above the weekday timetable"),
+            NSLocalizedString("Saturday timetable", comment: "The section header title to show in RouteDetailViewController above the Saturday timetable"),
+            NSLocalizedString("Sunday timetable", comment: "The section header title to show in RouteDetailViewController above the Sunday timetable")]
 
     // MARK: - View delegate
     
@@ -125,11 +125,6 @@ class DetailViewController: UITableViewController {
             (self.view.frame.width - activityIndicatorSize) / 2,
             (self.view.frame.height - activityIndicatorSize) / 2,
             activityIndicatorSize, activityIndicatorSize)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

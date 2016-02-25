@@ -76,11 +76,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.showsUserLocation = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Delegates
     
     // MARK: CLLocationManagerDelegate
@@ -124,8 +119,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return
         }
         
-        if let listVC = self.navigationController!.viewControllers[0] as? ListViewController {
-            listVC.streetToSearch = (view.annotation?.title)!
+        if let routesListVC = self.navigationController!.viewControllers[0] as? RoutesListViewController {
+            routesListVC.streetToSearch = (view.annotation?.title)!
             self.navigationController!.popViewControllerAnimated(true)
         }
     }

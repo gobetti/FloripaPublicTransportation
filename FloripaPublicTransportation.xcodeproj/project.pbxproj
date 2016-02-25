@@ -13,8 +13,8 @@
 		9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA31C77BC350008DC7B /* Assets.xcassets */; };
 		9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */; };
 		9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */; };
-		9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACC1C77BF780008DC7B /* ListViewController.swift */; };
-		9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACE1C77C2890008DC7B /* DetailViewController.swift */; };
+		9C004ACD1C77BF780008DC7B /* RoutesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACC1C77BF780008DC7B /* RoutesListViewController.swift */; };
+		9C004ACF1C77C2890008DC7B /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACE1C77C2890008DC7B /* RouteDetailViewController.swift */; };
 		9C004AD31C77DB480008DC7B /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD21C77DB480008DC7B /* Route.swift */; };
 		9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD81C77E1910008DC7B /* RestApi.swift */; };
 		9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADA1C77E3160008DC7B /* Stop.swift */; };
@@ -27,7 +27,7 @@
 		9C3AC4301C7D646200AEC82E /* findDepartures.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42E1C7D646200AEC82E /* findDepartures.json */; };
 		9C3AC4311C7D646200AEC82E /* findStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42F1C7D646200AEC82E /* findStops.json */; };
 		9CC86D921C7E232D0076AB06 /* SystemLogAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */; };
-		9CC86D951C7E3FFD0076AB06 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D941C7E3FFD0076AB06 /* ListViewControllerTests.swift */; };
+		9CC86D951C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */; };
 		9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */; };
 		9CE2CB6E1C7CF59200E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB701C7CF59200E240DA /* InfoPlist.strings */; };
 		9CE2CB731C7CF59200E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB751C7CF59200E240DA /* InfoPlist.strings */; };
@@ -65,8 +65,8 @@
 		9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationUITests.swift; sourceTree = "<group>"; };
 		9C004ABE1C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C004ACC1C77BF780008DC7B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		9C004ACE1C77C2890008DC7B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9C004ACC1C77BF780008DC7B /* RoutesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesListViewController.swift; sourceTree = "<group>"; };
+		9C004ACE1C77C2890008DC7B /* RouteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		9C004AD21C77DB480008DC7B /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		9C004AD81C77E1910008DC7B /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		9C004ADA1C77E3160008DC7B /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		9CC86D901C7E232C0076AB06 /* FloripaPublicTransportationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FloripaPublicTransportationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemLogAccessor.m; sourceTree = "<group>"; };
 		9CC86D931C7E24770076AB06 /* SystemLogAccessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemLogAccessor.h; sourceTree = "<group>"; };
-		9CC86D941C7E3FFD0076AB06 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
+		9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesListViewControllerTests.swift; sourceTree = "<group>"; };
 		9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CustomCapitalizedString.swift"; sourceTree = "<group>"; };
 		9CE2CB6A1C7CF04A00E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		9CE2CB6B1C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			children = (
 				9CE2CB7F1C7CF59300E240DA /* InfoPlist.strings */,
 				9C004AB31C77BC350008DC7B /* Info.plist */,
-				9CC86D941C7E3FFD0076AB06 /* ListViewControllerTests.swift */,
+				9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */,
 				9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */,
 				9CC86D931C7E24770076AB06 /* SystemLogAccessor.h */,
 				9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */,
@@ -212,8 +212,8 @@
 		9C004AD61C77DBE30008DC7B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C004ACC1C77BF780008DC7B /* ListViewController.swift */,
-				9C004ACE1C77C2890008DC7B /* DetailViewController.swift */,
+				9C004ACC1C77BF780008DC7B /* RoutesListViewController.swift */,
+				9C004ACE1C77C2890008DC7B /* RouteDetailViewController.swift */,
 				9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */,
 			);
 			name = "View Controllers";
@@ -461,11 +461,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */,
-				9C004ACF1C77C2890008DC7B /* DetailViewController.swift in Sources */,
+				9C004ACF1C77C2890008DC7B /* RouteDetailViewController.swift in Sources */,
 				9C2485901C7D518300BE4CA8 /* ExpectationProtocol.swift in Sources */,
 				9C004AD31C77DB480008DC7B /* Route.swift in Sources */,
 				9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */,
-				9C004ACD1C77BF780008DC7B /* ListViewController.swift in Sources */,
+				9C004ACD1C77BF780008DC7B /* RoutesListViewController.swift in Sources */,
 				9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */,
 				9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */,
 				9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */,
@@ -477,7 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC86D951C7E3FFD0076AB06 /* ListViewControllerTests.swift in Sources */,
+				9CC86D951C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift in Sources */,
 				9CC86D921C7E232D0076AB06 /* SystemLogAccessor.m in Sources */,
 				9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  RoutesListViewController.swift
 //  FloripaPublicTransportation
 //
 //  Created by Marcelo Gobetti on 2/19/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UITableViewController, UISearchBarDelegate {
+class RoutesListViewController: UITableViewController, UISearchBarDelegate {
     // MARK: Public properties
     
     private var _streetToSearch: String? // stored property
@@ -59,7 +59,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "The navigation button that returns to the ListViewController"), style: .Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "The navigation button that returns to the RoutesListViewController"), style: .Plain, target: nil, action: nil)
         
         self.searchBar?.delegate = self
         
@@ -79,11 +79,6 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             (self.view.frame.width - activityIndicatorSize) / 2,
             (self.view.frame.height - activityIndicatorSize) / 2,
             activityIndicatorSize, activityIndicatorSize)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -124,10 +119,10 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         }
         
         if self.routes == nil || self.routes!.count == 0 {
-            return NSLocalizedString("No routes found", comment: "The section header title to show in ListViewController when no routes were found")
+            return NSLocalizedString("No routes found", comment: "The section header title to show in RoutesListViewController when no routes were found")
         }
         
-        return NSLocalizedString("Routes found", comment: "The section header title to show in ListViewController above the found routes")
+        return NSLocalizedString("Routes found", comment: "The section header title to show in RoutesListViewController above the found routes")
     }
     
     // MARK: - UISearchBarDelegate
@@ -142,10 +137,11 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard segue.identifier == "goToDetail" else {
+            NSLog("Unknown segue identifier: \(segue.identifier)")
             return
         }
         
-        let destinationVC = segue.destinationViewController as! DetailViewController
+        let destinationVC = segue.destinationViewController as! RouteDetailViewController
         destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
     }
     

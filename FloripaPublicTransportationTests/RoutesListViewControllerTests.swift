@@ -1,5 +1,5 @@
 //
-//  ListViewControllerTests.swift
+//  RoutesListViewControllerTests.swift
 //  FloripaPublicTransportation
 //
 //  Created by Marcelo Gobetti on 2/24/16.
@@ -10,7 +10,7 @@ import XCTest
 @testable import FloripaPublicTransportation
 import OHHTTPStubs
 
-class ListViewControllerTests: XCTestCase, ExpectationProtocol {
+class RoutesListViewControllerTests: XCTestCase, ExpectationProtocol {
     // MARK: - Set up & Tear down
     
     // This method is called before the invocation of each test method in the class.
@@ -19,16 +19,16 @@ class ListViewControllerTests: XCTestCase, ExpectationProtocol {
         
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        self.listVC = navigationController.topViewController as? ListViewController
+        self.routesListVC = navigationController.topViewController as? RoutesListViewController
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = self.listVC
+        UIApplication.sharedApplication().keyWindow!.rootViewController = self.routesListVC
         
         // forces the views to load:
         XCTAssertNotNil(navigationController.view)
-        XCTAssertNotNil(self.listVC!.view)
+        XCTAssertNotNil(self.routesListVC!.view)
         
         expectation = expectationWithDescription("foo")
-        self.listVC!.delegate = self // allowing the mockListVC to execute our mock onDone() function
+        self.routesListVC!.delegate = self // allowing the mockListVC to execute our mock onDone() function
     }
     
     /// This method is called after the invocation of each test method in the class.
@@ -46,15 +46,15 @@ class ListViewControllerTests: XCTestCase, ExpectationProtocol {
             return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
         }
         
-        self.listVC!.streetToSearch = "whatever"
+        self.routesListVC!.streetToSearch = "whatever"
         
         // loop until the expectation is fulfilled:
         waitForExpectationsWithTimeout(expectationTimeout) { error in
             XCTAssertNil(error, "Expectation timeout")
         }
         
-        XCTAssertEqual(self.listVC!.tableView.numberOfSections, 1, "The table view should have exactly and only 1 section")
-        XCTAssertEqual(self.listVC!.tableView.numberOfRowsInSection(0), 2, "The table view should have exactly and only 2 rows in its section")
+        XCTAssertEqual(self.routesListVC!.tableView.numberOfSections, 1, "The table view should have exactly and only 1 section")
+        XCTAssertEqual(self.routesListVC!.tableView.numberOfRowsInSection(0), 2, "The table view should have exactly and only 2 rows in its section")
     }
     
     func testTableViewHasNoCellsIfJsonHasNoRows() {
@@ -63,20 +63,20 @@ class ListViewControllerTests: XCTestCase, ExpectationProtocol {
             return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
         }
         
-        self.listVC!.streetToSearch = "whatever"
+        self.routesListVC!.streetToSearch = "whatever"
         
         // loop until the expectation is fulfilled:
         waitForExpectationsWithTimeout(expectationTimeout) { error in
             XCTAssertNil(error, "Expectation timeout")
         }
         
-        XCTAssertEqual(self.listVC!.tableView.numberOfSections, 1, "The table view should have exactly and only 1 section")
-        XCTAssertEqual(self.listVC!.tableView.numberOfRowsInSection(0), 0, "The table view should not have any rows")
+        XCTAssertEqual(self.routesListVC!.tableView.numberOfSections, 1, "The table view should have exactly and only 1 section")
+        XCTAssertEqual(self.routesListVC!.tableView.numberOfRowsInSection(0), 0, "The table view should not have any rows")
     }
     
     // MARK: - Private properties
     
-    private var listVC: ListViewController?
+    private var routesListVC: RoutesListViewController?
     
     // MARK: - XCTestExpectation definitions
     
