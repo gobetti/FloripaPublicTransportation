@@ -88,16 +88,18 @@ class RestApi {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request,
             completionHandler: { (data, response, error) in
+                guard error == nil else {
+                    NSLog("dataTaskWithRequest sent an error: \(error!.description)")
+                    // calls taskCompletion with an empty NSDictionary:
+                    taskCompletion(jsonRows: [NSDictionary]())
+                    delegate?.onDone("foo")
+                    return
+                }
+                
                 do {
-                    guard error == nil else {
-                        NSLog("dataTaskWithRequest sent an error: \(error!.description)")
-                        // calls taskCompletion with an empty NSDictionary:
-                        taskCompletion(jsonRows: [NSDictionary]())
-                        return
-                    }
-                    
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
                     if let rows = json!["rows"] as? [NSDictionary] {
+                        // "what to do with the json rows" logic:
                         taskCompletion(jsonRows: rows)
                     }
                     else {
@@ -108,9 +110,14 @@ class RestApi {
                 catch let error as NSError {
                     NSLog("NSJSONSerialization.JSONObjectWithData threw an error: \(error.description)")
                     NSLog("JSON contents: \(NSString(data: data!, encoding: NSUTF8StringEncoding)!)")
+                    // calls taskCompletion with an empty NSDictionary:
+                    taskCompletion(jsonRows: [NSDictionary]())
                 }
+                delegate?.onDone("foo")
         })
         
         task.resume()
     }
+    
+    static var delegate: ExpectationProtocol? // for tests only
 }

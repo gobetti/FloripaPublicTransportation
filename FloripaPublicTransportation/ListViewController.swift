@@ -21,7 +21,9 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             
             _streetToSearch = newValue
             
-            self.routes?.removeAll()
+            if self.routes?.count > 0 {
+                self.routes?.removeAll()
+            }
             self.activityIndicator.startAnimating()
             self.view.bringSubviewToFront(self.activityIndicator)
             
@@ -36,7 +38,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: Private properties
     
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar?
     private var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     
     private var _routes: [Route]? // stored property
@@ -59,7 +61,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "The navigation button that returns to the ListViewController"), style: .Plain, target: nil, action: nil)
         
-        self.searchBar.delegate = self
+        self.searchBar?.delegate = self
         
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
@@ -99,6 +101,11 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.routes == nil {
             return 0
+        }
+        
+        if self.streetToSearch != nil {
+            // if got here, then the table view has finished reloading its data
+            delegate?.onDone("foo")
         }
         
         return routes!.count
@@ -141,5 +148,6 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         let destinationVC = segue.destinationViewController as! DetailViewController
         destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
     }
-
+    
+    var delegate: ExpectationProtocol? // for tests only
 }
