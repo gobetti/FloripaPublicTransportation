@@ -19,6 +19,7 @@
 		9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADA1C77E3160008DC7B /* Stop.swift */; };
 		9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADC1C77E3200008DC7B /* Departure.swift */; };
 		9C0CA1FF1C7FA3BE00BEFE33 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0CA1FE1C7FA3BE00BEFE33 /* Connectivity.swift */; };
+		9C0CA2011C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0CA2001C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift */; };
 		9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */; };
 		9C2485901C7D518300BE4CA8 /* ExpectationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */; };
 		9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */; };
@@ -69,6 +70,7 @@
 		9C004ADA1C77E3160008DC7B /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		9C004ADC1C77E3200008DC7B /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		9C0CA1FE1C7FA3BE00BEFE33 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		9C0CA2001C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiTests.swift; sourceTree = "<group>"; };
 		9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationProtocol.swift; sourceTree = "<group>"; };
 		9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				9CE2CB7F1C7CF59300E240DA /* InfoPlist.strings */,
 				9C004AB31C77BC350008DC7B /* Info.plist */,
 				9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */,
+				9C0CA2001C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift */,
 				9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */,
 				9CC86D931C7E24770076AB06 /* SystemLogAccessor.h */,
 				9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */,
@@ -475,6 +478,7 @@
 				9CC86D951C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift in Sources */,
 				9CC86D921C7E232D0076AB06 /* SystemLogAccessor.m in Sources */,
 				9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */,
+				9C0CA2011C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

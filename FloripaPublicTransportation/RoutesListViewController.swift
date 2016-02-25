@@ -108,7 +108,7 @@ class RoutesListViewController: UITableViewController, UISearchBarDelegate {
         
         if self.streetToSearch != nil {
             // if got here, then the table view has finished reloading its data
-            delegate?.onDone("foo")
+            delegate?.onDone()
         }
         
         return routes!.count
