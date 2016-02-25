@@ -137,7 +137,9 @@ class RoutesListViewController: UITableViewController, UISearchBarDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard segue.identifier == "goToDetail" else {
-            NSLog("Unknown segue identifier: \(segue.identifier)")
+            if segue.identifier != nil {
+                NSLog("Unknown segue identifier: \(segue.identifier)")
+            }
             return
         }
         
