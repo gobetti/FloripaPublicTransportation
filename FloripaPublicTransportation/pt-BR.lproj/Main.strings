@@ -1,0 +1,18 @@
+/* Class = "UILabel"; text = "Touch and hold over a street to create a pin. A callout will open indicating the selected street's name - confirm to search routes from there!"; ObjectID = "BNX-Co-pRu"; */
+"BNX-Co-pRu.text" = "Mantenha o toque sobre uma rua para criar um pin. Um balão abrirá indicando o nome da rua selecionada - confirme para procurar rotas a partir dela!";
+
+/* Class = "UINavigationItem"; title = "Select a street"; ObjectID = "gHh-xf-J5Y"; */
+"gHh-xf-J5Y.title" = "Selecione uma rua";
+
+/* Class = "UINavigationItem"; title = "Route details"; ObjectID = "ikJ-Or-iL6"; */
+"ikJ-Or-iL6.title" = "Detalhes da rota";
+
+/* Class = "UIBarButtonItem"; title = "Map"; ObjectID = "lsQ-qv-dAr"; */
+"lsQ-qv-dAr.title" = "Mapa";
+
+/* Class = "UINavigationItem"; title = "Search routes"; ObjectID = "sQz-WE-jZa"; */
+"sQz-WE-jZa.title" = "Procurar rotas";
+
+/* Class = "UISearchBar"; placeholder = "Street name (or part of it)"; ObjectID = "u9F-eS-xsr"; */
+"u9F-eS-xsr.placeholder" = "Nome da rua (ou parte)";
+
