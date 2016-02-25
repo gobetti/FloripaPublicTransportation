@@ -28,7 +28,7 @@ class RoutesListViewControllerTests: XCTestCase, ExpectationProtocol {
         XCTAssertNotNil(self.routesListVC!.view)
         
         expectation = expectationWithDescription("foo")
-        self.routesListVC!.delegate = self // allowing the mockListVC to execute our mock onDone() function
+        self.routesListVC!.delegate = self // allowing the routesListVC to execute our mock onDone() function
     }
     
     /// This method is called after the invocation of each test method in the class.
@@ -105,7 +105,7 @@ class RoutesListViewControllerTests: XCTestCase, ExpectationProtocol {
     
     private var expectation: XCTestExpectation?
     
-    func onDone(results: String){
+    func onDone(){
         expectation?.fulfill()
     }
 }

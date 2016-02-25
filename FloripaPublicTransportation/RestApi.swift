@@ -9,7 +9,8 @@
 import Foundation
 
 class RestApi {
-    /// The `completion` block should be such that an object receives the `routes` array.
+    /// Async method that POSTs to the API and returns `Route`s from a `stopName`.
+    /// - Parameter completion: the block to be called on asynchronous task completion. It should be such that an object receives the `routes` array.
     static func findRoutesByStopName(stopName: String, completion: (routes: [Route]) -> Void)
     {
         var stopNameEscaped = stopName
@@ -29,7 +30,8 @@ class RestApi {
         })
     }
     
-    /// The `completion` block should be such that an object receives the `stops` array.
+    /// Async method that POSTs to the API and returns `Stop`s from a `routeId`.
+    /// - Parameter completion: the block to be called on asynchronous task completion. It should be such that an object receives the `stops` array.
     static func findStopsByRouteId(routeId: Int, completion: (stops: [Stop]) -> Void)
     {
         var stops = [Stop]()
@@ -44,7 +46,8 @@ class RestApi {
         })
     }
     
-    /// The `completion` block should be such that an object receives the `departures` array.
+    /// Async method that POSTs to the API and returns `Departure`s from a `routeId`.
+    /// - Parameter completion: the block to be called on asynchronous task completion. It should be such that an object receives the `departures` array.
     static func findDeparturesByRouteId(routeId: Int, completion: (departures: [Departure]) -> Void)
     {
         var departures = [Departure]()
@@ -92,7 +95,7 @@ class RestApi {
                     NSLog("dataTaskWithRequest sent an error: \(error!.description)")
                     // calls taskCompletion with an empty NSDictionary:
                     taskCompletion(jsonRows: [NSDictionary]())
-                    delegate?.onDone("foo")
+                    delegate?.onDone()
                     return
                 }
                 
@@ -113,7 +116,7 @@ class RestApi {
                     // calls taskCompletion with an empty NSDictionary:
                     taskCompletion(jsonRows: [NSDictionary]())
                 }
-                delegate?.onDone("foo")
+                delegate?.onDone()
         })
         
         task.resume()

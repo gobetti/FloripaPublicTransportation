@@ -12,13 +12,14 @@
 		9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA01C77BC350008DC7B /* Main.storyboard */; };
 		9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA31C77BC350008DC7B /* Assets.xcassets */; };
 		9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C004AA51C77BC350008DC7B /* LaunchScreen.storyboard */; };
-		9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */; };
 		9C004ACD1C77BF780008DC7B /* RoutesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACC1C77BF780008DC7B /* RoutesListViewController.swift */; };
 		9C004ACF1C77C2890008DC7B /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ACE1C77C2890008DC7B /* RouteDetailViewController.swift */; };
 		9C004AD31C77DB480008DC7B /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD21C77DB480008DC7B /* Route.swift */; };
 		9C004AD91C77E1910008DC7B /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004AD81C77E1910008DC7B /* RestApi.swift */; };
 		9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADA1C77E3160008DC7B /* Stop.swift */; };
 		9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C004ADC1C77E3200008DC7B /* Departure.swift */; };
+		9C0CA1FF1C7FA3BE00BEFE33 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0CA1FE1C7FA3BE00BEFE33 /* Connectivity.swift */; };
+		9C0CA2011C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0CA2001C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift */; };
 		9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */; };
 		9C2485901C7D518300BE4CA8 /* ExpectationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */; };
 		9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */; };
@@ -29,7 +30,6 @@
 		9CC86D921C7E232D0076AB06 /* SystemLogAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */; };
 		9CC86D951C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */; };
 		9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */; };
-		9CE2CB6E1C7CF59200E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB701C7CF59200E240DA /* InfoPlist.strings */; };
 		9CE2CB731C7CF59200E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB751C7CF59200E240DA /* InfoPlist.strings */; };
 		9CE2CB781C7CF59200E240DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB7A1C7CF59200E240DA /* Localizable.strings */; };
 		9CE2CB7D1C7CF59300E240DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE2CB7F1C7CF59300E240DA /* InfoPlist.strings */; };
@@ -63,14 +63,14 @@
 		9C004AAD1C77BC350008DC7B /* FloripaPublicTransportationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C004AB31C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C004AB81C77BC350008DC7B /* FloripaPublicTransportationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloripaPublicTransportationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloripaPublicTransportationUITests.swift; sourceTree = "<group>"; };
-		9C004ABE1C77BC350008DC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C004ACC1C77BF780008DC7B /* RoutesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesListViewController.swift; sourceTree = "<group>"; };
 		9C004ACE1C77C2890008DC7B /* RouteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		9C004AD21C77DB480008DC7B /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		9C004AD81C77E1910008DC7B /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		9C004ADA1C77E3160008DC7B /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		9C004ADC1C77E3200008DC7B /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		9C0CA1FE1C7FA3BE00BEFE33 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		9C0CA2001C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiTests.swift; sourceTree = "<group>"; };
 		9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationProtocol.swift; sourceTree = "<group>"; };
 		9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +85,6 @@
 		9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CustomCapitalizedString.swift"; sourceTree = "<group>"; };
 		9CE2CB6A1C7CF04A00E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		9CE2CB6B1C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		9CE2CB6F1C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		9CE2CB741C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		9CE2CB791C7CF59200E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9CE2CB7E1C7CF59300E240DA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 				9C2827A11C7BBFC200CBCCE1 /* MapKit.framework */,
 				9C004A9B1C77BC350008DC7B /* FloripaPublicTransportation */,
 				9C004AB01C77BC350008DC7B /* FloripaPublicTransportationTests */,
-				9C004ABB1C77BC350008DC7B /* FloripaPublicTransportationUITests */,
 				9C004A9A1C77BC350008DC7B /* Products */,
 				F43E947371E45935A494CFD5 /* Pods */,
 				070509EE9E12AEB7F4897A9E /* Frameworks */,
@@ -169,22 +167,13 @@
 				9CE2CB7F1C7CF59300E240DA /* InfoPlist.strings */,
 				9C004AB31C77BC350008DC7B /* Info.plist */,
 				9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */,
+				9C0CA2001C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift */,
 				9C24858D1C7D466D00BE4CA8 /* RestApiTests.swift */,
 				9CC86D931C7E24770076AB06 /* SystemLogAccessor.h */,
 				9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */,
 				9CC86D901C7E232C0076AB06 /* FloripaPublicTransportationTests-Bridging-Header.h */,
 			);
 			path = FloripaPublicTransportationTests;
-			sourceTree = "<group>";
-		};
-		9C004ABB1C77BC350008DC7B /* FloripaPublicTransportationUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9CE2CB701C7CF59200E240DA /* InfoPlist.strings */,
-				9C004ABC1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift */,
-				9C004ABE1C77BC350008DC7B /* Info.plist */,
-			);
-			path = FloripaPublicTransportationUITests;
 			sourceTree = "<group>";
 		};
 		9C004AD41C77DBC50008DC7B /* Supporting files */ = {
@@ -222,9 +211,9 @@
 		9C004AD71C77DC700008DC7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C0CA1FD1C7FA3A500BEFE33 /* Helpers */,
 				9C004ADE1C77E32A0008DC7B /* Entities */,
 				9C004AD81C77E1910008DC7B /* RestApi.swift */,
-				9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -237,6 +226,15 @@
 				9C004ADA1C77E3160008DC7B /* Stop.swift */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		9C0CA1FD1C7FA3A500BEFE33 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9C0CA1FE1C7FA3BE00BEFE33 /* Connectivity.swift */,
+				9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		9C3AC4321C7D646500AEC82E /* JSON examples */ = {
@@ -401,7 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CE2CB6E1C7CF59200E240DA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +464,7 @@
 				9C004ADD1C77E3200008DC7B /* Departure.swift in Sources */,
 				9C004ACD1C77BF780008DC7B /* RoutesListViewController.swift in Sources */,
 				9C004A9D1C77BC350008DC7B /* AppDelegate.swift in Sources */,
+				9C0CA1FF1C7FA3BE00BEFE33 /* Connectivity.swift in Sources */,
 				9C004ADB1C77E3160008DC7B /* Stop.swift in Sources */,
 				9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */,
 				9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */,
@@ -480,6 +478,7 @@
 				9CC86D951C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift in Sources */,
 				9CC86D921C7E232D0076AB06 /* SystemLogAccessor.m in Sources */,
 				9C24858E1C7D466D00BE4CA8 /* RestApiTests.swift in Sources */,
+				9C0CA2011C7FAF9E00BEFE33 /* RouteDetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +486,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C004ABD1C77BC350008DC7B /* FloripaPublicTransportationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,14 +521,6 @@
 				9CE2CB6B1C7CF59200E240DA /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		9CE2CB701C7CF59200E240DA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CE2CB6F1C7CF59200E240DA /* pt-BR */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		9CE2CB751C7CF59200E240DA /* InfoPlist.strings */ = {
