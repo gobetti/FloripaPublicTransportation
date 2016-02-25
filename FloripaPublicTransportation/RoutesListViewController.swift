@@ -21,6 +21,8 @@ class RoutesListViewController: UITableViewController, UISearchBarDelegate {
             
             _streetToSearch = newValue
             
+            self.searchBar?.text = _streetToSearch
+            
             if self.routes?.count > 0 {
                 self.routes?.removeAll()
             }
