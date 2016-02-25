@@ -75,7 +75,7 @@ class RouteDetailViewController: UITableViewController {
     
     private var _finishedLoadingStops = false
     private var _finishedLoadingDepartures = false
-    private var finishedLoadingStops: Bool {
+    var finishedLoadingStops: Bool {
         get { return _finishedLoadingStops }
         set {
             _finishedLoadingStops = newValue
@@ -87,7 +87,7 @@ class RouteDetailViewController: UITableViewController {
             }
         }
     }
-    private var finishedLoadingDepartures: Bool {
+    var finishedLoadingDepartures: Bool {
         get { return _finishedLoadingDepartures }
         set {
             _finishedLoadingDepartures = newValue

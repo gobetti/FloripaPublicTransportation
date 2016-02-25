@@ -337,7 +337,7 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     
     private var expectation: XCTestExpectation?
     
-    func onDone(results: String){
+    func onDone(){
         expectation?.fulfill()
     }
 }

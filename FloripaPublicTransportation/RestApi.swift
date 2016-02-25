@@ -95,7 +95,7 @@ class RestApi {
                     NSLog("dataTaskWithRequest sent an error: \(error!.description)")
                     // calls taskCompletion with an empty NSDictionary:
                     taskCompletion(jsonRows: [NSDictionary]())
-                    delegate?.onDone("foo")
+                    delegate?.onDone()
                     return
                 }
                 
@@ -116,7 +116,7 @@ class RestApi {
                     // calls taskCompletion with an empty NSDictionary:
                     taskCompletion(jsonRows: [NSDictionary]())
                 }
-                delegate?.onDone("foo")
+                delegate?.onDone()
         })
         
         task.resume()

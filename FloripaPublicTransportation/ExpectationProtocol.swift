@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ExpectationProtocol {
-    func onDone(description: String)
+    func onDone()
 }
