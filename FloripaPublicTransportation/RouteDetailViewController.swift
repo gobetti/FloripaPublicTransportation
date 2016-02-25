@@ -21,6 +21,11 @@ class RouteDetailViewController: UITableViewController {
             
             _routeId = newValue
             
+            guard Connectivity.isConnectedToNetwork() else {
+                // cannot call the alert here because the view controller has no view yet
+                return
+            }
+            
             self.activityIndicator.startAnimating()
             self.view.bringSubviewToFront(self.activityIndicator)
             
@@ -108,6 +113,11 @@ class RouteDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard Connectivity.isConnectedToNetwork() else {
+            Connectivity.popNoConnectionAlert(self)
+            return
+        }
         
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
