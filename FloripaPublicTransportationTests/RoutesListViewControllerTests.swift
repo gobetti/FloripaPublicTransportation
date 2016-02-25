@@ -74,6 +74,27 @@ class RoutesListViewControllerTests: XCTestCase, ExpectationProtocol {
         XCTAssertEqual(self.routesListVC!.tableView.numberOfRowsInSection(0), 0, "The table view should not have any rows")
     }
     
+    func testSegueIsPerformedWithoutErrors() {
+        stub(isHost("api.appglu.com") && isPath("/v1/queries/findRoutesByStopName/run")) { _ in
+            let stubData = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("findRoutes", ofType: "json")!)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+        
+        self.routesListVC!.streetToSearch = "whatever"
+        
+        // loop until the expectation is fulfilled:
+        waitForExpectationsWithTimeout(expectationTimeout) { error in
+            XCTAssertNil(error, "Expectation timeout")
+        }
+        
+        let nsLogArrayCountBefore = SystemLogAccessor.NSLogArray().count
+        let firstRowIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.routesListVC!.tableView!.selectRowAtIndexPath(firstRowIndexPath, animated: false, scrollPosition: .None)
+        self.routesListVC!.performSegueWithIdentifier("goToDetail", sender: self.routesListVC!.tableView!.cellForRowAtIndexPath(firstRowIndexPath))
+        
+        XCTAssertEqual(SystemLogAccessor.NSLogArray().count, nsLogArrayCountBefore, "This application should not have logged anything while performing the segue")
+    }
+    
     // MARK: - Private properties
     
     private var routesListVC: RoutesListViewController?
