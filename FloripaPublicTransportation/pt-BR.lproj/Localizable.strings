@@ -21,3 +21,12 @@
 
 /* The MapViewController's annotation subtitle */
 "Search routes from this street?" = "Procurar rotas nessa rua?";
+
+/* The UIAlert title when no internet connection is detected */
+"No connection" = "Sem conexão";
+
+/* The UIAlert message when no internet connection is detected */
+"Please connect to the internet in order to find routes and their details." = "Por favor, conecte-se à internet para poder procurar rotas e detalhes das mesmas.";
+
+/* The UIAlert button when no internet connection is detected */
+"Dismiss" = "Descartar";

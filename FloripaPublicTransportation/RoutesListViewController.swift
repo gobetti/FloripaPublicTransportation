@@ -15,7 +15,7 @@ class RoutesListViewController: UITableViewController, UISearchBarDelegate {
     var streetToSearch: String? { // public computed property
         get { return _streetToSearch }
         set {
-            guard newValue != nil && newValue != _streetToSearch else {
+            guard newValue != nil else {
                 return
             }
             
@@ -26,6 +26,12 @@ class RoutesListViewController: UITableViewController, UISearchBarDelegate {
             if self.routes?.count > 0 {
                 self.routes?.removeAll()
             }
+            
+            guard Connectivity.isConnectedToNetwork() else {
+                Connectivity.popNoConnectionAlert(self)
+                return
+            }
+            
             self.activityIndicator.startAnimating()
             self.view.bringSubviewToFront(self.activityIndicator)
             
