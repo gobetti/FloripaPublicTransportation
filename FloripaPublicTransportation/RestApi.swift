@@ -119,5 +119,5 @@ class RestApi {
         task.resume()
     }
     
-    static var delegate: ExpectationProtocol?
+    static var delegate: ExpectationProtocol? // for tests only
 }

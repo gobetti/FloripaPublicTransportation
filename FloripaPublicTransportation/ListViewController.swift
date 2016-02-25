@@ -103,6 +103,11 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             return 0
         }
         
+        if self.streetToSearch != nil {
+            // if got here, then the table view has finished reloading its data
+            delegate?.onDone("foo")
+        }
+        
         return routes!.count
     }
 
@@ -143,5 +148,6 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         let destinationVC = segue.destinationViewController as! DetailViewController
         destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
     }
-
+    
+    var delegate: ExpectationProtocol? // for tests only
 }

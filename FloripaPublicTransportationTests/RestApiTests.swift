@@ -126,6 +126,53 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     
     // MARK: - findStopsByRouteId
     
+    func testEmptyDataFindStopsByRouteId() {
+        testInvalidFindStopsByRouteId() {_ in
+            let stubData = "Just a dummy string".dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+    }
+    
+    func testNotAJsonFindStopsByRouteId() {
+        testInvalidFindStopsByRouteId() {_ in
+            let stubData = "Just a dummy string".dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+    }
+    
+    func testEmptyRowsFindStopsByRouteId() {
+        testValidFindStopsByRouteId( {_ in
+            let obj = ["rows":[], "rowsAffected":"0"]
+            return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
+            },
+            completionTests: { stops in
+                XCTAssertEqual(stops.count, 0, "The returned array must be empty")
+        })
+    }
+    
+    func testDictionaryFindStopsByRouteId() {
+        testValidFindStopsByRouteId({ _ in
+            let obj = ["rows":[["id": 13,"name": "TICEN","sequence": 1,"route_id": 17]], "rowsAffected":"0"]
+            return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
+            },
+            completionTests: { stops in
+                XCTAssertEqual(stops.count, 1, "The returned array must have 1 stop")
+                XCTAssertEqual(stops[0].sequence, 1, "The returned stop must have sequence=1")
+        })
+    }
+    
+    func testRealJsonFindStopsByRouteId() {
+        testValidFindStopsByRouteId({ _ in
+            let stubData = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("findStops", ofType: "json")!)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+            },
+            completionTests: { stops in
+                XCTAssertEqual(stops.count, 28, "The returned array must have 28 stops")
+                XCTAssertFalse(stops.contains({ $0.sequence < 1 }) || stops.contains({ $0.sequence > 28 }), "The returned array must not contain sequences out of range [1,28]")
+                XCTAssertEqual(Set<Int>(stops.map({ return $0.sequence! })).count, stops.count, "All elements in the stops array must have an unique 'sequence'")
+        })
+    }
+    
     // MARK: Generic functions
     
     /// Generic function to be used by tests of `findStopsByRouteId` that use a valid JSON
@@ -175,6 +222,66 @@ class RestApiTests: XCTestCase, ExpectationProtocol {
     }
     
     // MARK: - findDeparturesByRouteId
+    
+    func testEmptyDataFindDeparturesByRouteId() {
+        testInvalidFindDeparturesByRouteId() {_ in
+            let stubData = "Just a dummy string".dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+    }
+    
+    func testNotAJsonFindDeparturesByRouteId() {
+        testInvalidFindDeparturesByRouteId() {_ in
+            let stubData = "Just a dummy string".dataUsingEncoding(NSUTF8StringEncoding)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+        }
+    }
+    
+    func testEmptyRowsFindDeparturesByRouteId() {
+        testValidFindDeparturesByRouteId( {_ in
+            let obj = ["rows":[], "rowsAffected":"0"]
+            return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
+            },
+            completionTests: { departures in
+                XCTAssertEqual(departures.count, 0, "The returned array must be empty")
+        })
+    }
+    
+    func testDictionaryFindDeparturesByRouteId() {
+        testValidFindDeparturesByRouteId({ _ in
+            let obj = ["rows":[["id": 472,"calendar": "WEEKDAY","time": "06:00"]], "rowsAffected":"0"]
+            return OHHTTPStubsResponse(JSONObject: obj, statusCode:200, headers:nil)
+            },
+            completionTests: { departures in
+                XCTAssertEqual(departures.count, 1, "The returned array must have 1 departure")
+                XCTAssertEqual(departures[0].calendar, Departure.Calendar.Weekday, "The returned departure must have calendar=Weekday")
+        })
+    }
+    
+    func testRealJsonFindDeparturesByRouteId() {
+        testValidFindDeparturesByRouteId({ _ in
+            let stubData = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("findDepartures", ofType: "json")!)
+            return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
+            },
+            completionTests: { departures in
+                XCTAssertEqual(departures.count, 76, "The returned array must have 76 departures")
+                XCTAssertFalse(departures.contains({ $0.time < "00:00" }) || departures.contains({ $0.time > "23:59" }), "The returned array must not contain sequences out of range [\"00:00\",\"23:59\"]")
+                
+                let weekdayDepartures = departures.filter({ (d:Departure) -> Bool in
+                    return d.calendar == Departure.Calendar.Weekday})
+                let saturdayDepartures = departures.filter({ (d:Departure) -> Bool in
+                    return d.calendar == Departure.Calendar.Saturday})
+                let sundayDepartures = departures.filter({ (d:Departure) -> Bool in
+                    return d.calendar == Departure.Calendar.Sunday})
+                
+                XCTAssertGreaterThan(weekdayDepartures.count, 0, "The returned array must have timetables for weekdays")
+                XCTAssertGreaterThan(saturdayDepartures.count, 0, "The returned array must have timetables for Saturdays")
+                XCTAssertGreaterThan(sundayDepartures.count, 0, "The returned array must have timetables for Sundays")
+                XCTAssertEqual(Set<String>(weekdayDepartures.map({ return $0.time! })).count, weekdayDepartures.count, "All elements in the weekday departures array must have an unique 'time'")
+                XCTAssertEqual(Set<String>(saturdayDepartures.map({ return $0.time! })).count, saturdayDepartures.count, "All elements in the Saturday departures array must have an unique 'time'")
+                XCTAssertEqual(Set<String>(sundayDepartures.map({ return $0.time! })).count, sundayDepartures.count, "All elements in the Sunday departures array must have an unique 'time'")
+        })
+    }
     
     // MARK: Generic functions
     
