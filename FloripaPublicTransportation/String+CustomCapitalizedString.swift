@@ -8,15 +8,16 @@
 
 import Foundation
 
-let capitalNames = ["TITRI", "TICEN", "TICAN", "TISAN"]
+// @todo Remove D'Eça from the list below and use the regex once Swift supports \U in substitution template
+let preferredCaseNames = ["TITRI", "TICEN", "TICAN", "TISAN", " via ", "D'Eça"]
 
 extension String {
     var customCapitalizedString: String {
         var capitalized = self.capitalizedString
         
-        for capitalName in capitalNames {
+        for name in preferredCaseNames {
             capitalized =
-                capitalized.stringByReplacingOccurrencesOfString(capitalName.capitalizedString, withString: capitalName)
+                capitalized.stringByReplacingOccurrencesOfString(name.capitalizedString, withString: name)
         }
         
         // @todo Uncomment below when Swift starts to support \U in replacement template
