@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  RoutesListViewController.swift
 //  FloripaPublicTransportation
 //
 //  Created by Marcelo Gobetti on 2/19/16.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ListViewController: UITableViewController, UISearchBarDelegate {
+class RoutesListViewController: UITableViewController, UISearchBarDelegate {
     // MARK: Public properties
     
     private var _streetToSearch: String? // stored property
-    var streetToSearch: String? {
+    var streetToSearch: String? { // public computed property
         get { return _streetToSearch }
         set {
             guard newValue != nil && newValue != _streetToSearch else {
@@ -21,7 +21,11 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             
             _streetToSearch = newValue
             
-            self.routes?.removeAll()
+            self.searchBar?.text = _streetToSearch
+            
+            if self.routes?.count > 0 {
+                self.routes?.removeAll()
+            }
             self.activityIndicator.startAnimating()
             self.view.bringSubviewToFront(self.activityIndicator)
             
@@ -36,7 +40,7 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: Private properties
     
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar?
     private var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     
     private var _routes: [Route]? // stored property
@@ -57,12 +61,9 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Find routes"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "The navigation button that returns to the RoutesListViewController"), style: .Plain, target: nil, action: nil)
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
-        
-        self.searchBar.delegate = self
-        self.searchBar.placeholder = "Street name (or part of it)"
+        self.searchBar?.delegate = self
         
         self.activityIndicator.hidesWhenStopped = true
         self.view.addSubview(self.activityIndicator)
@@ -82,11 +83,6 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
             activityIndicatorSize, activityIndicatorSize)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
     
     // MARK: Rows
@@ -102,6 +98,11 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.routes == nil {
             return 0
+        }
+        
+        if self.streetToSearch != nil {
+            // if got here, then the table view has finished reloading its data
+            delegate?.onDone("foo")
         }
         
         return routes!.count
@@ -120,10 +121,10 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
         }
         
         if self.routes == nil || self.routes!.count == 0 {
-            return "No routes found"
+            return NSLocalizedString("No routes found", comment: "The section header title to show in RoutesListViewController when no routes were found")
         }
         
-        return "Routes found"
+        return NSLocalizedString("Routes found", comment: "The section header title to show in RoutesListViewController above the found routes")
     }
     
     // MARK: - UISearchBarDelegate
@@ -138,11 +139,15 @@ class ListViewController: UITableViewController, UISearchBarDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard segue.identifier == "goToDetail" else {
+            if segue.identifier != nil {
+                NSLog("Unknown segue identifier: \(segue.identifier)")
+            }
             return
         }
         
-        let destinationVC = segue.destinationViewController as! DetailViewController
+        let destinationVC = segue.destinationViewController as! RouteDetailViewController
         destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
     }
-
+    
+    var delegate: ExpectationProtocol? // for tests only
 }

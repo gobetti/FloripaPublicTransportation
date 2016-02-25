@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     street = street.substringToIndex(commaIndex)
                 }
                 annotation.title = street
-                annotation.subtitle = "Find routes from this street?"
+                annotation.subtitle = NSLocalizedString("Search routes from this street?", comment: "The MapViewController's annotation subtitle")
             }
             else {
                 NSLog("Could not retrieve address.")
@@ -54,9 +54,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Select street"
-        self.descriptionLabel.text = "Touch and hold over a street to create a pin. Touch the pin to open a callout with the street\'s name and confirm to search routes from there."
-        
         // Do any additional setup after loading the view.
         self.mapView.delegate = self
         self.locationManager.delegate = self
@@ -73,15 +70,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     /// This function should be called if the user has authorized to share his location with the
     /// application: this authorization could have been previously granted or it could happen
     /// during the lifetime of `MapViewController`
-    private func showAndUpdateUserLocation()
-    {
+    private func showAndUpdateUserLocation() {
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /// NSTimer callback to show the pin callout automatically once it is created
+    internal func showPinCallout() {
+        // can't be private otherwise the selector does not recognize it
+        mapView.selectAnnotation(mapView.annotations.filter({ (a: MKAnnotation) -> Bool in
+            return !a.isKindOfClass(MKUserLocation) }).first!, animated: true)
     }
     
     // MARK: - Delegates
@@ -95,14 +93,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // MARK: MKMapViewDelegate
-    
-    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
-        /// zooms the map to the user location on first load
-        if mapView.annotations.count == 1 && mapView.annotations.first!.isKindOfClass(MKUserLocation) {
-            mapView.showAnnotations(mapView.annotations, animated: true)
-            return
-        }
-    }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKindOfClass(MKUserLocation) else {
@@ -122,13 +112,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
+    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
+        /// zooms the map to the user location on first load
+        if mapView.annotations.count == 1 && mapView.annotations.first!.isKindOfClass(MKUserLocation) {
+            mapView.showAnnotations(mapView.annotations, animated: true)
+            return
+        }
+        else if mapView.annotations.count >= 1  {
+            // for some reason, the callout is not shown if the line below is called here:
+            //mapView.selectAnnotation(mapView.annotations.last!, animated: false)
+            
+            // will have to adopt an ugly way and hardcode a time interval that always works:
+            _ = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "showPinCallout", userInfo: nil, repeats: false)
+        }
+    }
+    
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard self.navigationController != nil else {
             return
         }
         
-        if let listVC = self.navigationController!.viewControllers[0] as? ListViewController {
-            listVC.streetToSearch = (view.annotation?.title)!
+        if let routesListVC = self.navigationController!.viewControllers[0] as? RoutesListViewController {
+            routesListVC.streetToSearch = (view.annotation?.title)!
             self.navigationController!.popViewControllerAnimated(true)
         }
     }

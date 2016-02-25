@@ -21,22 +21,18 @@
             </objects>
             <point key="canvasLocation" x="-394" y="250"/>
         </scene>
-        <!--List View Controller-->
+        <!--Search routes-->
         <scene sceneID="3UW-L7-g2R">
             <objects>
-                <tableViewController id="M3M-Tj-syc" customClass="ListViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="M3M-Tj-syc" customClass="RoutesListViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oYq-Jd-VuG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" id="u9F-eS-xsr">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" placeholder="Street name (or part of it)" id="u9F-eS-xsr">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeCell" id="Szk-gO-heC">
@@ -56,7 +52,7 @@
                             <outlet property="delegate" destination="M3M-Tj-syc" id="SU1-xn-C9A"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sQz-WE-jZa">
+                    <navigationItem key="navigationItem" title="Search routes" id="sQz-WE-jZa">
                         <barButtonItem key="rightBarButtonItem" title="Map" id="lsQ-qv-dAr">
                             <connections>
                                 <segue destination="46V-ab-Vew" kind="show" id="XSC-fM-plN"/>
@@ -71,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="275" y="250"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Route details-->
         <scene sceneID="vCi-jG-2Eq">
             <objects>
-                <tableViewController id="I6L-Fe-R07" customClass="DetailViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="I6L-Fe-R07" customClass="RouteDetailViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mdM-Q1-6KV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,13 +91,13 @@
                             <outlet property="delegate" destination="I6L-Fe-R07" id="8qj-MB-Yrj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ikJ-Or-iL6"/>
+                    <navigationItem key="navigationItem" title="Route details" id="ikJ-Or-iL6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQc-oU-wUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="958" y="250"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Select a street-->
         <scene sceneID="JpT-C7-dvv">
             <objects>
                 <viewController id="46V-ab-Vew" customClass="MapViewController" customModule="FloripaPublicTransportation" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,14 +109,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNX-Co-pRu">
-                                <rect key="frame" x="0.0" y="69" width="600" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNX-Co-pRu">
+                                <rect key="frame" x="0.0" y="69" width="600" height="33.5"/>
+                                <string key="text">Touch and hold over a street to create a pin. A callout will open indicating the selected street's name - confirm to search routes from there!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.32225215517241379" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-r8-RgE">
-                                <rect key="frame" x="0.0" y="86" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="102.5" width="600" height="600"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="yza-1g-864" appends="YES" id="uU3-3A-LMg"/>
@@ -138,6 +135,7 @@
                             <constraint firstItem="Lrc-r8-RgE" firstAttribute="height" secondItem="JVS-Hl-ZEo" secondAttribute="height" id="w7O-VP-2Fi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Select a street" id="gHh-xf-J5Y"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="BNX-Co-pRu" id="ftn-eB-4iA"/>
                         <outlet property="mapView" destination="Lrc-r8-RgE" id="hY6-5k-o0T"/>

@@ -1,0 +1,23 @@
+/* The navigation button that returns to the RoutesListViewController */
+"Back" = "Voltar";
+
+/* The section header title to show in RouteDetailViewController above the streets that compose the route */
+"List of streets within the route" = "Lista de ruas na rota";
+
+/* The section header title to show in RoutesListViewController when no routes were found */
+"No routes found" = "Nenhuma rota encontrada";
+
+/* The section header title to show in RoutesListViewController above the found routes */
+"Routes found" = "Rotas encontradas";
+
+/* The section header title to show in RouteDetailViewController above the Saturday timetable */
+"Saturday timetable" = "Horários aos sábados";
+
+/* The section header title to show in RouteDetailViewController above the Sunday timetable */
+"Sunday timetable" = "Horários aos domingos";
+
+/* The section header title to show in RouteDetailViewController above the weekday timetable */
+"Weekday timetable" = "Horários em dias úteis";
+
+/* The MapViewController's annotation subtitle */
+"Search routes from this street?" = "Procurar rotas nessa rua?";
