@@ -111,7 +111,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNX-Co-pRu">
                                 <rect key="frame" x="0.0" y="69" width="600" height="33.5"/>
-                                <string key="text">Touch and hold over a street to create a pin. Touch the pin to open a callout with the street's name and confirm to search routes from there.</string>
+                                <string key="text">Touch and hold over a street to create a pin. A callout will open indicating the selected street's name - confirm to search routes from there!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.32225215517241379" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
