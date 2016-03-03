@@ -9,8 +9,8 @@
 import Foundation
 
 class Stop {
-    var sequence: Int?
-    var name: String?
+    var sequence: Int
+    var name: String
     
     init(sequence: Int, name: String) {
         self.sequence = sequence

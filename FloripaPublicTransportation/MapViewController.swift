@@ -9,7 +9,9 @@
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    @IBOutlet weak var descriptionLabel: UILabel!
+    var routesListDelegate: RoutesListViewController?
+    
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var mapView: MKMapView!
     @IBAction private func addPin(sender: UILongPressGestureRecognizer) {
         guard sender.state == .Began else {
@@ -24,6 +26,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude), completionHandler: {
             (placemarks, error) in
+            guard placemarks != nil else {
+                return
+            }
+            
             if let addressDict = placemarks![0].addressDictionary {
                 var street = addressDict["Street"] as! String
                 if let commaIndex = street.characters.indexOf(",") {
@@ -43,10 +49,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     NSLog("Error: \(error!.description)")
                 }
             }
+            
+            self.mapView.addAnnotation(annotation)
             }
         )
-        
-        self.mapView.addAnnotation(annotation)
     }
     
     private let locationManager = CLLocationManager()
@@ -73,13 +79,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     private func showAndUpdateUserLocation() {
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-    }
-    
-    /// NSTimer callback to show the pin callout automatically once it is created
-    internal func showPinCallout() {
-        // can't be private otherwise the selector does not recognize it
-        mapView.selectAnnotation(mapView.annotations.filter({ (a: MKAnnotation) -> Bool in
-            return !a.isKindOfClass(MKUserLocation) }).first!, animated: true)
     }
     
     // MARK: - Delegates
@@ -120,10 +119,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         else if mapView.annotations.count >= 1  {
             // for some reason, the callout is not shown if the line below is called here:
-            //mapView.selectAnnotation(mapView.annotations.last!, animated: false)
-            
-            // will have to adopt an ugly way and hardcode a time interval that always works:
-            _ = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: "showPinCallout", userInfo: nil, repeats: false)
+            mapView.selectAnnotation(mapView.annotations.last!, animated: false)
         }
     }
     
@@ -132,9 +128,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return
         }
         
-        if let routesListVC = self.navigationController!.viewControllers[0] as? RoutesListViewController {
-            routesListVC.streetToSearch = (view.annotation?.title)!
-            self.navigationController!.popViewControllerAnimated(true)
-        }
+        self.routesListDelegate?.streetToSearch = (view.annotation?.title)!
+        self.navigationController!.popViewControllerAnimated(true)
     }
 }
