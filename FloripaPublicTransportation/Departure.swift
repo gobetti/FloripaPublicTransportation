@@ -16,7 +16,7 @@ class Departure {
     }
     
     var calendar: Calendar?
-    var time: String?
+    var time: String
     
     /// `calendar` must be a String complying to the `Calendar` enum.
     init(calendar: String, time: String) {

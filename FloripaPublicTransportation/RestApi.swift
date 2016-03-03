@@ -100,7 +100,7 @@ class RestApi {
                 }
                 
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
                     if let rows = json!["rows"] as? [NSDictionary] {
                         // "what to do with the json rows" logic:
                         taskCompletion(jsonRows: rows)

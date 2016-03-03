@@ -24,9 +24,9 @@
 		9C2485901C7D518300BE4CA8 /* ExpectationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C24858F1C7D518300BE4CA8 /* ExpectationProtocol.swift */; };
 		9C2827A01C7BBF9000CBCCE1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28279F1C7BBF9000CBCCE1 /* MapViewController.swift */; };
 		9C2827A21C7BBFC200CBCCE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2827A11C7BBFC200CBCCE1 /* MapKit.framework */; };
-		9C3AC42D1C7D60E900AEC82E /* findRoutes.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42C1C7D60E900AEC82E /* findRoutes.json */; };
-		9C3AC4301C7D646200AEC82E /* findDepartures.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42E1C7D646200AEC82E /* findDepartures.json */; };
-		9C3AC4311C7D646200AEC82E /* findStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42F1C7D646200AEC82E /* findStops.json */; };
+		9C3448FE1C89031400D0391B /* findRoutes.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42C1C7D60E900AEC82E /* findRoutes.json */; };
+		9C3448FF1C89031700D0391B /* findDepartures.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42E1C7D646200AEC82E /* findDepartures.json */; };
+		9C3449001C89031A00D0391B /* findStops.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C3AC42F1C7D646200AEC82E /* findStops.json */; };
 		9CC86D921C7E232D0076AB06 /* SystemLogAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D911C7E232D0076AB06 /* SystemLogAccessor.m */; };
 		9CC86D951C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC86D941C7E3FFD0076AB06 /* RoutesListViewControllerTests.swift */; };
 		9CE2CB661C7CD81700E240DA /* String+CustomCapitalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE2CB651C7CD81700E240DA /* String+CustomCapitalizedString.swift */; };
@@ -376,12 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C3AC4311C7D646200AEC82E /* findStops.json in Resources */,
-				9C3AC42D1C7D60E900AEC82E /* findRoutes.json in Resources */,
 				9CE2CB781C7CF59200E240DA /* Localizable.strings in Resources */,
 				9C004AA71C77BC350008DC7B /* LaunchScreen.storyboard in Resources */,
 				9CE2CB731C7CF59200E240DA /* InfoPlist.strings in Resources */,
-				9C3AC4301C7D646200AEC82E /* findDepartures.json in Resources */,
 				9C004AA41C77BC350008DC7B /* Assets.xcassets in Resources */,
 				9C004AA21C77BC350008DC7B /* Main.storyboard in Resources */,
 			);
@@ -391,6 +388,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C3449001C89031A00D0391B /* findStops.json in Resources */,
+				9C3448FE1C89031400D0391B /* findRoutes.json in Resources */,
+				9C3448FF1C89031700D0391B /* findDepartures.json in Resources */,
 				9CE2CB7D1C7CF59300E240DA /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

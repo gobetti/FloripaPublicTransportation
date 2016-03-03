@@ -144,15 +144,21 @@ class RoutesListViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard segue.identifier == "goToDetail" else {
-            if segue.identifier != nil {
-                NSLog("Unknown segue identifier: \(segue.identifier)")
-            }
+        guard segue.identifier != nil else {
+            NSLog("prepareForSegue received segue without identifier")
             return
         }
         
-        let destinationVC = segue.destinationViewController as! RouteDetailViewController
-        destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
+        switch (segue.identifier!) {
+        case "goToDetail":
+            let destinationVC = segue.destinationViewController as! RouteDetailViewController
+            destinationVC.routeId = self.routes![(self.tableView.indexPathsForSelectedRows?[0].row)!].id
+        case "goToMap":
+            let destinationVC = segue.destinationViewController as! MapViewController
+            destinationVC.routesListDelegate = self
+        default:
+            NSLog("Unknown segue identifier: \(segue.identifier)")
+        }
     }
     
     var delegate: ExpectationProtocol? // for tests only
